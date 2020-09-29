@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2020/2021}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -31,11 +31,11 @@
 \author{\nama \textendash \@npm} 
 
 %tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{David Christopher}
+\newcommand{\@npm}{2017730015}
+\newcommand{\@judultopik}{IF Student Portal : Pemanfaatan \textit{Web Scraping} untuk Pembangunan Aplikasi \textit{Android}} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\tanggal}{08/10/2020}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,38 +44,36 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
-
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
-
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
-
-Dst, dst, dst, \ldots\ldots\ldots 
-
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
-
-Dst, dst, dst, \ldots\ldots\ldots 
+Student Portal UNPAR adalah sistem informasi berbasis \textit{web} yang digunakan oleh mahasiswa UNPAR. IF Student Portal adalah sistem informasi berbasis \textit{web} khusus mahasiswa Teknik Informatika UNPAR hasil pengembangan yang lebih lanjut dari Student Portal UNPAR. Skripsi ini dibuat untuk membawa IF Student Portal ke platform \textit{android} sebagai aplikasi \textit{native android} IF Student Portal dengan menggunakan \textit{library} jsoup untuk mengimplementasikan web scraping. \textit{Web scraping} adalah teknik untuk mendapatkan informasi tertentu dengan cara yang semi terstruktur dari sebuah \textit{website}. \textit{Web scraping} bisa digunakan ketika \textit{website} yang memiliki informasi informasi yang kita cari tidak menyediakan \textit{API (Application Programming Interface)}. 
 
 \section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
+\begin{itemize}
+    \item Fitur apa saja yang akan tersedia di aplikasi \textit{android} IF Student Portal?
+    \item Bagaimana cara mengimplementasikan \textit{web scraping} dengan \textit{library} jsoup?
+    \item Bagaimana membangun aplikasi \textit{android} IF Student Portal?
+    
+\end{itemize}
 
 \section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
+\begin{itemize}
+    \item Mengetahui fitur apa saja yang akan tersedia di IF Student Portal.
+    \item Mengimplementasikan \textit{web scraping} menggunakan \textit{library} jsoup.
+    \item Membangun aplikasi \textit{native android} IF Student Portal.
+    
+\end{itemize}
 
 \section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
 
 Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 \begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
-		
+	\item Pengguna dapat melihat jadwal perkuliahan yang diikuti.
+	\item Pengguna dapat melihat data diri.
+	\item Perangkat lunak dapat diakses dimana saja dengan koneksi internet.
+	\item Perangkat lunak memiliki \textit{offline mode}.
+	\item Perangkat lunak mendukung kurikulum 2018.
+	\item Perangkat lunak memiliki tampilan yang estetik, responsif, dan senada dengan \textit{website} IF Student Portal.
 \end{itemize}
 
 \section{Detail Pengerjaan Skripsi}
@@ -83,31 +81,56 @@ Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan terseb
 
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
-		\item Menulis dokumen skripsi
+		\item Melakukan studi mengenai \textit{library} jsoup dan teknik \textit{web scraping}.
+		\item Melakukan studi mengenai \textit{android design}.
+		\item Menganalisis IF Student Portal dan Student Portal UNPAR.
+		\item Mendesain kelas aplikasi.
+		\item Mengimplementasikan \textit{web scraping} menggunakan \textit{library} jsoup.
+		\item Mengimplementasikan tampilan aplikasi sesuai rekomendasi \textit{android design} dan konsisten terhadap \textit{website} IF Student Portal.
+		\item Melakukan pengujian dan eksperimen.
+		\item Menulis dokumen skripsi.
 	\end{enumerate}
 
 \section{Rencana Kerja}
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mempelajari teknik \textit{web scraping} dengan \textit{library} JSOUP.
+\item Menganalisis IF Student Portal dan Student Portal UNPAR.
+\item Merancang model aplikasi \textit{android} IF Student Portal.
+\item Mengimplementasikan \textit{web scraping} pada aplikasi \textit{android} dengan \textit{library} jsoup
+\item Menulis dokumen skripsi (BAB 4-6).
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Mempelajari \textit{android design}.
+\item Membuat tampilan aplikasi yang intuitif, estetik, responsif, dan konsisten terhadap \textit{website} IF Student Portal.
+\item Melakukan pengujian dan eksperimen terhadap aplikasi yang dibuat.
+\item Menulis dokumen skripsi (BAB 4-6).
 \end{enumerate}
+
+% \begin{center}
+%   \begin{tabular}{ | c | c | c | c | l |}
+%     \hline
+%     1*  & 2*(\%) & 3*(\%) & 4*(\%) &5*\\ \hline \hline
+%     1   & 10  & 10  &  &  Mempelajari teknik \textit{web scraping} dan \textit{library} jsoup\\ \hline
+%     2   & 10 & 5  & 5  & Mempelajari \textit{android design} \\ \hline
+%     3   & 10  & 10  &  & Menganalisis IF Student Portal dan Student Portal UNPAR\\ \hline
+%     4   & 15  & 15  &  & Merancang struktur program\\ \hline
+%     5   & 15  & 5  & 15 & Membangun aplikasi dengan teknik \textit{web scraping}\\ \hline
+%     6   & 10  & 0  & 10 & Implementasi tampilan \\ \hline
+%     7   & 10  & 0  & 10 & Melakukan pengujian dan eksperimen\\  \hline
+%     8   & 20  & 5  & 15 &  Menulis dokumen skripsi\\ \hline
+%     Total  & 100  & 50  & 50 &  \\ \hline
+%                           \end{tabular}
+% \end{center}
+
+% Keterangan (*)\\
+% 1 : Bagian pengerjaan Skripsi (nomor disesuaikan dengan detail pengerjaan di bagian 5)\\
+% 2 : Persentase total \\
+% 3 : Persentase yang akan diselesaikan di Skripsi 1 \\
+% 4 : Persentase yang akan diselesaikan di Skripsi 2 \\
+% 5 : Penjelasan singkat apa yang dilakukan di S1 (Skripsi 1) atau S2 (skripsi 2)
 
 \vspace{1cm}
 \centering Bandung, \tanggal\\
