@@ -5,40 +5,73 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
-Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
-Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+Student Portal UNPAR adalah sistem informasi berbasis \textit{web} yang digunakan oleh mahasiswa UNPAR. IF Student Portal adalah sistem informasi berbasis \textit{web} khusus mahasiswa Teknik Informatika UNPAR hasil pengembangan yang lebih lanjut dari Student Portal UNPAR. Skripsi ini dibuat untuk membawa IF Student Portal ke platform \textit{android} sebagai aplikasi \textit{native android} IF Student Portal dengan menggunakan \textit{library} jsoup untuk mengimplementasikan web scraping. 
+
+\textit{Web scraping} adalah teknik untuk mendapatkan informasi tertentu dengan cara yang semi terstruktur dari sebuah \textit{website}. \textit{Web scraping} bisa digunakan ketika \textit{website} yang memiliki informasi informasi yang kita cari tidak menyediakan \textit{API (Application Programming Interface)}. \textit{Library} jsoup\cite{jsoup} merupakan \textit{library} Java yang digunakan untuk melakukan \textit{web scraping} tersebut. Aplikasi akan menggunakan arsitektur \textit{Model-View-Presenter}. Aplikasi akan dibangun dengan bahasa \textit{native android} yaitu Java.
 
 \dtext{5-10}
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
-
+Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
+\begin{itemize}
+    \item Fitur apa saja yang akan tersedia di aplikasi \textit{android} IF Student Portal?
+    \item Bagaimana cara mengimplementasikan \textit{web scraping} dengan \textit{library} jsoup?
+    \item Bagaimana membangun aplikasi \textit{android} IF Student Portal?
+\end{itemize}
 \dtext{6}
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
-
-\dtext{7}
+Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
+\begin{itemize}
+    \item Mengetahui fitur apa saja yang akan tersedia di IF Student Portal.
+    \item Mengimplementasikan \textit{web scraping} menggunakan \textit{library} jsoup.
+    \item Membangun aplikasi \textit{native android} IF Student Portal.
+    
+\end{itemize}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
-
-\dtext{8}
+Beberapa batasan yang dibuat terkait dengan pengerjaan skripsi ini adalah sebagai berikut:
+\begin{enumerate}
+	\item Aplikasi hanya akan menangani format NPM mahasiswa angkatan 2018 ke atas.
+	\item Aplikasi hanya akan dikembangkan untuk perangkat dengan sistem operasi \textit{android}.
+	\item Mata kuliah yang tersedia hanya mata kuliah yang didukung SIA Models.
+	\item Aplikasi tidak dapat digunakan mahasiswa yang diluar IF UNPAR.
+\end{enumerate}
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
+Metodologi yang dilakukan pada skripsi ini adalah sebagai berikut:
 
-\dtext{9}
+\begin{enumerate}
+	\item Melakukan studi mengenai \textit{library} jsoup untuk mengambil data dari Portal Akademik Mahasiswa, CSS Selector yang akan digunakan jsoup untuk menyeleksi data yang akan diambil, skripsi Herfan Heryandi, untuk membangun Informatika Student Portal.
+	\item Menganalisis Student Portal UNPAR dan IF Student Portal.
+	\item Merancang model IF Student Portal.
+	\item Mengimplementasikan ekstraksi data situs web menggunakan \textit{library} jsoup.
+	\item Melakukan eksperimen dan pengujian.
+	\item Membuat dokumentasi.
+\end{enumerate}
+
+
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
+Sistematika penulisan setiap bab pada skripsi ini adalah sebagai berikut:
 
-\dtext{10}
+\begin{enumerate}
+  \item Bab Pendahuluan \\
+  Bab 1 berisi latar belakang, rumusan masalah, tujuan, metode penelitian,
+  dan sistematika penulisan yang digunakan untuk menyusun skripsi ini.
+  \item Bab Dasar Teori \\
+  Bab 2 berisikan teori-teori yang digunakan dalam pembuatan skripsi ini. Teori
+  yang digunakan yaitu \textit{library} jsoup, SIA Models, dan \textit{android design}.
+  \item Bab Analisis \\
+  Bab 3 berisikan analisis yang dilakukan pada skripsi ini, meliputi analisis sistem, analisis kebutuhan \textit{android} IF Student Portal, analisis komunikasi Portal Akademik Mahasiswa untuk fitur IF Student Portal, analisis \textit{use case} meliputi diagram \textsl{use case} dan skenario, serta analisis kelas. 
+	\item Bab Perancangan \\
+  Bab 4 berisikan perancangan aplikasi, meliputi diagram kelas rinci beserta deskripsi kelas dan fungsinya dan perancangan antarmuka aplikasi.   \item Bab Implementasi dan Pengujian \\
+  Bab 5 berisikan implementasi dan pengujian aplikasi, meliputi lingkungan implementasi, hasil implementasi, pengujian fungsional, dan pengujian eksperimental.
+	\item Bab Kesimpulan dan Saran \\
+  Bab 6 berisikan kesimpulan dari hasil pembangunan aplikasi beserta saran untuk pengembangan berikutnya.
+\end{enumerate}
