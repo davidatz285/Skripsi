@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity implements ILoginActivity{
         String phpSessId = bundle.getString("phpSessId");
         //this.mahasiswa = (Mahasiswa) bundle.getSerializable("mhs");
         this.loginPresenter = new LoginPresenter(this);
-        loginPresenter.getMahasiswaInfo(phpSessId);
+        //loginPresenter.getMahasiswaInfo(phpSessId);
     }
 
     @Override
