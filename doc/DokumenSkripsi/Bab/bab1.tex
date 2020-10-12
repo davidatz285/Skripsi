@@ -5,9 +5,9 @@
 \section{Latar Belakang}
 \label{sec:label}
 
-Student Portal UNPAR adalah sistem informasi berbasis \textit{web} yang digunakan oleh mahasiswa UNPAR. IF Student Portal adalah sistem informasi berbasis \textit{web} khusus mahasiswa Teknik Informatika UNPAR hasil pengembangan yang lebih lanjut dari Student Portal UNPAR. Skripsi ini dibuat untuk membawa IF Student Portal ke platform \textit{android} sebagai aplikasi \textit{native android} IF Student Portal dengan menggunakan \textit{library} jsoup untuk mengimplementasikan web scraping. 
+Student Portal UNPAR adalah sistem informasi berbasis \textit{web} yang digunakan oleh mahasiswa UNPAR. IF Student Portal adalah sistem informasi berbasis \textit{web} khusus mahasiswa Teknik Informatika UNPAR hasil pengembangan  lebih lanjut dari Student Portal UNPAR sebagai skripsi milik Herfan Heryandi. Skripsi ini dibuat untuk membawa IF Student Portal ke platform \textit{android} sebagai aplikasi \textit{native android} IF Student Portal dengan dibantu \textit{library} jsoup dan mengikuti kaidah \textit{android design}. 
 
-\textit{Web scraping} adalah teknik untuk mendapatkan informasi tertentu dengan cara yang semi terstruktur dari sebuah \textit{website}. \textit{Web scraping} bisa digunakan ketika \textit{website} yang memiliki informasi informasi yang kita cari tidak menyediakan \textit{API (Application Programming Interface)}. \textit{Library} jsoup\cite{jsoup} merupakan \textit{library} Java yang digunakan untuk melakukan \textit{web scraping} tersebut. Aplikasi akan menggunakan arsitektur \textit{Model-View-Presenter}. Aplikasi akan dibangun dengan bahasa \textit{native android} yaitu Java.
+ Aplikasi akan dibangun dengan bahasa \textit{native android} yaitu Java. Aplikasi akan menggunakan arsitektur \textit{MVP (Model-View-Presenter)}. Fitur-fitur yang tersedia di situs IF Student Portal akan dibawa ke platform \textit{android} dan dibuat agar terintegrasi dengan fitur yang dimiliki \textit{android.} Aplikasi \textit{android} IF Student Portal akan mengambil data langsung dari Student Portal Unpar dengan dibantu \textit{library} jsoup. Untuk melakukan pengambilan data, jsoup akan langsung berkomunikasi dengan Student Portal UNPAR.  
 
 \dtext{5-10}
 
@@ -16,8 +16,8 @@ Student Portal UNPAR adalah sistem informasi berbasis \textit{web} yang digunaka
 Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
 \begin{itemize}
     \item Fitur apa saja yang akan tersedia di aplikasi \textit{android} IF Student Portal?
-    \item Bagaimana cara mengimplementasikan \textit{web scraping} dengan \textit{library} jsoup?
-    \item Bagaimana membangun aplikasi \textit{android} IF Student Portal?
+    \item Bagaimana cara mengimplementasikan fungsi aplikasi \textit{android} IF Student Portal dengan \textit{library} jsoup?
+    \item Bagaimana cara mengimplementasikan tampilan aplikasi \textit{android} IF Student Portal dengan \textit{library} jsoup?
 \end{itemize}
 \dtext{6}
 
@@ -26,8 +26,8 @@ Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
 Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
 \begin{itemize}
     \item Mengetahui fitur apa saja yang akan tersedia di IF Student Portal.
-    \item Mengimplementasikan \textit{web scraping} menggunakan \textit{library} jsoup.
-    \item Membangun aplikasi \textit{native android} IF Student Portal.
+    \item Mengimplementasikan fungsional aplikasi \textit{android} IF Student Portal menggunakan \textit{library} jsoup..
+    \item Mengimplementasikan tampilan aplikasi \textit{android} IF Student Portal mengikuti kaidah \textit{android design}.
     
 \end{itemize}
 
@@ -35,9 +35,11 @@ Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
 \label{sec:batasan}
 Beberapa batasan yang dibuat terkait dengan pengerjaan skripsi ini adalah sebagai berikut:
 \begin{enumerate}
-	\item Aplikasi hanya akan menangani format NPM mahasiswa angkatan 2018 ke atas.
+	\item Aplikasi hanya akan menangani format NPM mahasiswa angkatan 2017 ke atas.
 	\item Aplikasi hanya akan dikembangkan untuk perangkat dengan sistem operasi \textit{android}.
 	\item Mata kuliah yang tersedia hanya mata kuliah yang didukung SIA Models.
+	\item Prasyarat mata kuliah yang tersedia hanya mata kuliah yang didukung SIA Models.
+	\item Aplikasi tidak dapat menangani mahasiswa yang pernah melakukan transfer studi.
 	\item Aplikasi tidak dapat digunakan mahasiswa yang diluar IF UNPAR.
 \end{enumerate}
 
@@ -46,10 +48,10 @@ Beberapa batasan yang dibuat terkait dengan pengerjaan skripsi ini adalah sebaga
 Metodologi yang dilakukan pada skripsi ini adalah sebagai berikut:
 
 \begin{enumerate}
-	\item Melakukan studi mengenai \textit{library} jsoup untuk mengambil data dari Portal Akademik Mahasiswa, CSS Selector yang akan digunakan jsoup untuk menyeleksi data yang akan diambil, skripsi Herfan Heryandi, untuk membangun Informatika Student Portal.
+	\item Melakukan studi mengenai \textit{library} jsoup untuk mengambil data dari Portal Akademik Mahasiswa, \textit{android design}, dan skripsi Herfan Heryandi untuk membangun aplikasi \textit{android} IF Student Portal.
 	\item Menganalisis Student Portal UNPAR dan IF Student Portal.
 	\item Merancang model IF Student Portal.
-	\item Mengimplementasikan ekstraksi data situs web menggunakan \textit{library} jsoup.
+	\item Mengimplementasi aplikasi \textit{android} IF Student Portal menggunakan \textit{library} jsoup dengan mengikuti kaidah \textit{android design}.
 	\item Melakukan eksperimen dan pengujian.
 	\item Membuat dokumentasi.
 \end{enumerate}
@@ -65,13 +67,14 @@ Sistematika penulisan setiap bab pada skripsi ini adalah sebagai berikut:
   Bab 1 berisi latar belakang, rumusan masalah, tujuan, metode penelitian,
   dan sistematika penulisan yang digunakan untuk menyusun skripsi ini.
   \item Bab Dasar Teori \\
-  Bab 2 berisikan teori-teori yang digunakan dalam pembuatan skripsi ini. Teori
+  Bab 2 berisi teori-teori yang digunakan dalam pembuatan skripsi ini. Teori
   yang digunakan yaitu \textit{library} jsoup, SIA Models, dan \textit{android design}.
   \item Bab Analisis \\
-  Bab 3 berisikan analisis yang dilakukan pada skripsi ini, meliputi analisis sistem, analisis kebutuhan \textit{android} IF Student Portal, analisis komunikasi Portal Akademik Mahasiswa untuk fitur IF Student Portal, analisis \textit{use case} meliputi diagram \textsl{use case} dan skenario, serta analisis kelas. 
-	\item Bab Perancangan \\
-  Bab 4 berisikan perancangan aplikasi, meliputi diagram kelas rinci beserta deskripsi kelas dan fungsinya dan perancangan antarmuka aplikasi.   \item Bab Implementasi dan Pengujian \\
-  Bab 5 berisikan implementasi dan pengujian aplikasi, meliputi lingkungan implementasi, hasil implementasi, pengujian fungsional, dan pengujian eksperimental.
-	\item Bab Kesimpulan dan Saran \\
-  Bab 6 berisikan kesimpulan dari hasil pembangunan aplikasi beserta saran untuk pengembangan berikutnya.
+  Bab 3 berisi analisis yang dilakukan pada skripsi ini, meliputi analisis sistem, analisis kebutuhan aplikasi \textit{android} IF Student Portal, analisis kaidah \textit{android design}, analisis Student Portal UNPAR dan situs IF Student Portal untuk fitur IF Student Portal, analisis \textit{use case} meliputi diagram \textsl{use case} dan skenario, serta analisis desain kelas. 
+  \item Bab Perancangan \\
+  Bab 4 berisi perancangan aplikasi, meliputi diagram kelas rinci beserta deskripsi kelas dan fungsinya dan perancangan antarmuka aplikasi.   
+  \item Bab Implementasi dan Pengujian \\
+  Bab 5 berisi implementasi dan pengujian aplikasi, meliputi lingkungan implementasi, hasil implementasi, pengujian fungsional, dan pengujian eksperimental.
+  \item Bab Kesimpulan dan Saran \\
+  Bab 6 berisi kesimpulan dari hasil pembangunan aplikasi beserta saran untuk pengembangan berikutnya.
 \end{enumerate}
