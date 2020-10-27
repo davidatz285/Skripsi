@@ -2,157 +2,177 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-\section{Skripsi}
-\label{sec:skripsi} 
+\section{Latar Belakang}
+\label{sec:latar} 
+Pada bab ini akan dijelaskan dasar teori mengenai jsoup, \textit{android design}, arsitektur \textit{MVP(Model-View-Presenter},  
+
+\section{\textit{Library jsoup}}
+\label{sec:jsoup}
+Jsoup adalah \textit{library} Java yang digunakan untuk mengambil data berupa HTML dari sebuah situs. Data HTML tersebut bisa digunakan untuk memperoleh informasi yang diperlukan dari suatu situs\cite{jsoup}. \textit{Library jsoup} ini bisa digunakan saat sebuah situs tidak menyediakan API untuk memberikan datanya.  
+
+
+\section{\textit{Android Design}}
+\label{sec:android design}
+Dalam mengembangkan aplikasi \textit{android}, ada pedoman desain yang diberikan. Desain tampilan aplikasi \textit{android} mengacu pada \textit{Android Material design}. Pedoman kualitas aplikasi juga diberikan untuk aspek kompabilitas, keamanan, peforma, dll. Kedua pedoman ini diberikan agar aplikasi yang dihasilkan bisa memiliki tampilan dan perilaku yang konsisten dengan platform \textit{android}. 
  
-Rencananya akan diisi dengan penjelasan umum mengenai buku skripsi.
-
-\dtext{11-12} 
-
-\section{\LaTeX}
-\label{sec:latex}
-
-Mengapa menggunakan \LaTeX{} untuk buku skripsi dan apa keunggulan/kerugiannya bagi mahasiswa dan pembuat template. 
-
-\dtext{13-14}
-
-
-\section{Template Skripsi FTIS UNPAR}
-\label{sec:template}
- 
-Akan dipaparkan bagaimana menggunakan template ini, termasuk petunjuk singkat membuat referensi, gambar dan tabel.
-Juga hal-hal lain yang belum terpikir sampai saat ini. 
- 
-\dtext{15-16}
-
-\subsection{Tabel}  
-Berikut adalah contoh pembuatan tabel. 
-Penempatan tabel dan gambar secara umum diatur secara otomatis oleh \LaTeX{}, perhatikan contoh di file bab2.tex untuk melihat bagaimana cara memaksa tabel ditempatkan sesuai keinginan kita.
-
-Perhatikan bawa berbeda dengan penempatan judul gambar gambar, keterangan tabel harus diletakkan di atas tabel!!
-Lihat Tabel~\ref{tab:contoh1} berikut ini:
-
-\begin{table}[H] %atau h saja untuk "kira kira di sini"
-	\centering 
-	\caption{Tabel contoh}
-	\label{tab:contoh1}
-	\begin{tabular}{cccc}
-		\toprule
-		& $v_{start}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-
-		\midrule
-		$\tau_{1}$ & 1 & 12& 20\\
-		$\tau_{2}$ & 1 &  & 20\\
-		$\tau_{3}$ & 1 & 9 & 20\\
-		$\tau_{4}$ & 1 &  & 20\\
-
-		\bottomrule
-		
-	\end{tabular} 
-\end{table}
-Tabel~\ref{tab:cthwarna1} dan Tabel~\ref{tab:cthwarna2} berikut ini adalah tabel dengan sel yang berwarna dan ada dua tabel yang bersebelahan. 
-\begin{table}[H]
-	\begin{minipage}[c]{0.49\linewidth}
-		\centering
-		\caption{Tabel bewarna(1)}
-		\label{tab:cthwarna1}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{2}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 5 \cellcolor{green}& 12& 20\\
-			$\tau_{2}$ & 1 & 8 \cellcolor{green}& & 20\\
-			$\tau_{3}$ & 1 & 2/8/17 \cellcolor{green}& 9 & 20\\
-			$\tau_{4}$ & 1 & \cellcolor{red}& & 20\\
-			
-			\bottomrule
-
-		\end{tabular}
-	\end{minipage}
-	\begin{minipage}[c]{0.49\linewidth}
-		
-		\centering 
-		\caption{Tabel bewarna(2)}
-		\label{tab:cthwarna2}
-		\begin{tabular}{ccccc}
-			\toprule
-			 & $v_{start}$ & $\mathcal{S}_{1}$ & $\mathcal{S}_{2}$ & $v_{end}$\\
-			
-			\midrule
-			$\tau_{1}$ & 1 & 12& 5 \cellcolor{red} &20\\
-			$\tau_{2}$ & 1 &  &  8 \cellcolor{green} &20\\
-			$\tau_{3}$ & 1 & 9 & 2/8/17 \cellcolor{green} &20\\
-			$\tau_{4}$ & 1 &   & \cellcolor{red} &20\\
-			
-			\bottomrule
-		
-		\end{tabular}
-	\end{minipage}
-\end{table}
-
- 
-\subsection{Kutipan}
-\label{subs:kutipan} 
-Berikut contoh kutipan dari berbagai sumber, untuk keterangan lebih lengkap, silahkan membaca file referensi.bib yang disediakan juga di template ini.
-Contoh kutipan:
+\subsection{\textit{Material Design}}
+\textit{Material Design} terdiri dari panduan, komponen, dan alat-alat untuk mendukung pembuatan tampilan antarmuka yang baik. \textit{Material Design} bertujuan mempermudah kolaborasi antara desainer dan pengembang aplikasi untuk membuat produk yang cantik dengan cepat\cite{materialdesign}.
+\subsection{\textit{App Quality}}
+Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal pemasangan, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{android developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
 \begin{itemize}
-	\item Buku:~\cite{berg:08:compgeom} 
-	\item Bab dalam buku:~\cite{kreveld:04:GIS}
-	\item Artikel dari Jurnal:~\cite{buchin:13:median}
-	\item Artikel dari prosiding seminar/konferensi:~\cite{kreveld:11:median}
-	\item Skripsi/Thesis/Disertasi:~\cite{lionov:02:animasi}~\cite{wiratma:10:following}~\cite{wiratma:22:later}
-	\item Technical/Scientific Report:~\cite{kreveld:07:watertight}
-	\item RFC (Request For Comments):~\cite{RFC1654}
-	\item Technical Documentation/Technical Manual:~\cite{Z.500}~\cite{unicode:16:stdv9}~\cite{google:16:and7}
-	\item Paten:~\cite{webb:12:comm}
-	\item Tidak dipublikasikan:~\cite{wiratma:09:median}~\cite{lionov:11:cpoly}
-	\item Laman web:~\cite{erickson:03:cgmodel}  
-	\item Lain-lain:~\cite{agung:12:tango}
-\end{itemize}    
-  
-\subsection{Gambar}
-
-Pada hampir semua editor, penempatan gambar di dalam dokumen \LaTeX{} tidak dapat dilakukan melalui proses {\it drag and drop}.
-Perhatikan contoh pada file bab2.tex untuk melihat bagaimana cara menempatkan gambar.
-Beberapa hal yang harus diperhatikan pada saat menempatkan gambar:
-\begin{itemize}
-	\item Setiap gambar {\bf harus} diacu di dalam teks (gunakan {\it field} {\sc label})
-	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $[$ dan $]$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
-	\item Jenis file yang dapat digunakan sebagai gambar cukup banyak, tetapi yang paling populer adalah tipe {\sc png} (lihat Gambar~\ref{fig:ularpng}), tipe {\sc jpg} (Gambar~\ref{fig:ularjpg}) dan tipe {\sc pdf} (Gambar~\ref{fig:ularpdf})
-	\item Besarnya gambar dapat diatur dengan {\it field} {\sc scale}.
-	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $[$ dan $]$ setelah deklarasi gambar.
-	Yang umum digunakan adalah {\bf H} untuk menempatkan gambar {\bf sesuai} penempatannya di file .tex atau  {\bf h} yang berarti "kira-kira" di sini. \\
-	Jika tidak menggunakan {\it placement specifier}, \LaTeX{} akan menempatkan gambar secara otomatis untuk menghindari bagian kosong pada dokumen anda.
-	Walaupun cara ini sangat mudah, hindarkan terjadinya penempatan dua gambar secara berurutan. 	
-	\begin{itemize}
-		\item Gambar~\ref{fig:ularpng} ditempatkan di bagian atas halaman, walaupun penempatannya dilakukan setelah penulisan 3 paragraf setelah penjelasan ini.
-		\item Gambar~\ref{fig:ularjpg} dengan skala 0.5 ditempatkan di antara dua buah paragraf. Perhatikan penulisannya di dalam file bab2.tex!
-		\item Gambar~\ref{fig:ularpdf} ditempatkan menggunakan {\it specifier} {\bf h}.
-	\end{itemize}
+    \item Desain visual dan interaksi pengguna
+    \item Fungsionalitas
+    \item Kompatibilitas, performa, dan stabilitas
+    \item Keamanan
+    \item \textit{Google Play}
 \end{itemize}
+Untuk keterangan lebih lanjut dari setiap poin diatas akan dijelaskan di bagian berikutnya.
+
+\subsubsection{Desain visual dan interaksi pengguna}
+Kriteria ini bertujuan memastikan aplikasi akan memiliki desain visual dan pola interaksi standar agar pengalaman pengguna konsisten dan intuitif\cite{androiddev}. Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. Aplikasi hanya menggunakan notifikasi untuk memberitahu perubahan yang terjadi dengan konteks yang berkaitan dengan pengguna pribadi dan untuk memberi tahu informasi/kontrol terhadap kejadian yang sedang berlangsung.
+
+\subsubsection{Fungsionalitas}
+Kriteria ini bertujuan memastikan aplikasi memberikan perilaku fungsional yang diharapkan, dengan tingkat izin yang sesuai \cite{androiddev}. Aplikasi hanya meminta izin untuk mendukung fungsionalitas aplikasi tersebut. Aplikasi tidak boleh meminta izin untuk mengakses data sensitif atau menggunakan layanan yang bisa membebani pengguna kecuali jika fitur inti aplikasi memerlukan izin tersebut.  Aplikasi harus berfungsi normal jika dipasang di kartu \textit{SD}. Audio tidak boleh diputar di layar utama, saat layar mati, dibalik layar, atau saat layar dikunci kecuali memutar audio adalah fitur utama. Jika memungkinkan aplikasi mendukung orientasi \textit{landscape} dan \textit{portrait}, dan menggunakan seluruh layar untuk kedua orientasi. Aplikasi tidak boleh membiarkan layanan tetap aktif saat di latar belakang layar, kecuali jika diperlukan fitur utama. Aplikasi mempertahankan status pengguna atau aplikasi saat meninggalkan latar depan dan mencegah kehilangan data tanpa sengaja akibat navigasi mundur dan perubahan status lainnya. 
+
+\subsubsection{Kompatibilitas, Performa, dan Stabilitas}
+Kriteria ini bertujuan memastikan aplikasi memberikan kompatibilitas, performa, stabilitas, dan daya respons yang diharapkan oleh pengguna \cite{androiddev}. Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan. Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat. Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala. Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}). Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya. Aplikasi menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian. Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan. 
+
+\subsubsection{Keamanan}
+Kriteria ini bertujuan memastikan aplikasi menangani dan mengamankan data pengguna dan informasi pribadi dengan benar\cite{androiddev}. Aplikasi harus menyimpan data pribadi di penyimpanan internal aplikasi dan tidak boleh mencatat data pribadi di log. Aplikasi harus memverifikasi data eksternal sebelum digunakan. Semua komponen aplikasi yang berbagi konten dengan aplikasi lain menetapkan (dan memberlakukan) izin yang sesuai, termasuk aktivitas, layanan, penerima siaran, dan khususnya penyedia konten. Aplikasi hanya boleh mengekspor komponen aplikasi yang membagikan data dengan aplikasi lain, atau komponen yang harus dipanggil oleh aplikasi lain. Aplikasi harus menyatakan konfigurasi keamanan jaringan dan semua lalu lintas jaringan dilakukan melalui \textit{SSL}. Jika aplikasi menggunakan layanan \textit{Google Play}, inisialisasi keamanan dilakukan saat aplikasi dimulai. Aplikasi harus menggunakan dependensi, \textit{library} dan \textit{SDK} terbaru. Aplikasi tidak boleh menjalankan kode dari luar aplikasi secara dinamis. Aplikasi harus menggunakan algoritma kriptografi kuat yang disediakan oleh platform.
+
+\subsubsection{\textit{Google Play}}
+Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi standar dan syarat untuk dipublikasikan di layanan \textit{Google Play}\cite{androiddev}. Aplikasi mematuhi Kebijakan Materi Pengembang \textit{Google Play} (tidak menawarkan materi tidak pantas, tidak menggunakan hak kekayaan intelektual atau merk orang lain, dll). Aplikasi sudah memenuhi kriteria yang sudah diuraikan sebelum bagian ini. Pengembang aplikasi harus mengatasi \textit{bug} yang disampaikan di halaman ulasan di layanan \textit{Google Play} jika \textit{bug} tersebut ditemukan di banyak perangkat dan berulang kali atau ditemukan di perangkat terbaru atau perangkat paling populer.    
+
+\section{Arsitektur \textit{MVP(Model-View-Presenter)}}
+\textit{MVP(Model-View-Presenter)} adalah salah satu arsitektur yang umum digunakan di aplikasi\newline \textit{android}. Arsitektur \textit{MVP} mencegah ketergantungan tampilan dengan model. Arsitektur \textit{MVP} juga memudahkan pemeliharaan aplikasi dan mengurangi kompleksitas kode. Arsitektur \textit{MVP} juga memudahkan pengujian baik dari sisi tampilan maupun fungsi kode \cite{arif:20:audit}.
+% \subsection{Tabel}  
+% Berikut adalah contoh pembuatan tabel. 
+% Penempatan tabel dan gambar secara umum diatur secara otomatis oleh \LaTeX{}, perhatikan contoh di file bab2.tex untuk melihat bagaimana cara memaksa tabel ditempatkan sesuai keinginan kita.
+
+% Perhatikan bawa berbeda dengan penempatan judul gambar gambar, keterangan tabel harus diletakkan di atas tabel!!
+% Lihat Tabel~\ref{tab:contoh1} berikut ini:
+
+% \begin{table}[H] %atau h saja untuk "kira kira di sini"
+% 	\centering 
+% 	\caption{Tabel contoh}
+% 	\label{tab:contoh1}
+% 	\begin{tabular}{cccc}
+% 		\toprule
+% 		& $v_{start}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
+
+% 		\midrule
+% 		$\tau_{1}$ & 1 & 12& 20\\
+% 		$\tau_{2}$ & 1 &  & 20\\
+% 		$\tau_{3}$ & 1 & 9 & 20\\
+% 		$\tau_{4}$ & 1 &  & 20\\
+
+% 		\bottomrule
+		
+% 	\end{tabular} 
+% \end{table}
+% Tabel~\ref{tab:cthwarna1} dan Tabel~\ref{tab:cthwarna2} berikut ini adalah tabel dengan sel yang berwarna dan ada dua tabel yang bersebelahan. 
+% \begin{table}[H]
+% 	\begin{minipage}[c]{0.49\linewidth}
+% 		\centering
+% 		\caption{Tabel bewarna(1)}
+% 		\label{tab:cthwarna1}
+% 		\begin{tabular}{ccccc}
+% 			\toprule
+% 			 & $v_{start}$ & $\mathcal{S}_{2}$ & $\mathcal{S}_{1}$ & $v_{end}$\\
+			
+% 			\midrule
+% 			$\tau_{1}$ & 1 & 5 \cellcolor{green}& 12& 20\\
+% 			$\tau_{2}$ & 1 & 8 \cellcolor{green}& & 20\\
+% 			$\tau_{3}$ & 1 & 2/8/17 \cellcolor{green}& 9 & 20\\
+% 			$\tau_{4}$ & 1 & \cellcolor{red}& & 20\\
+			
+% 			\bottomrule
+
+% 		\end{tabular}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{0.49\linewidth}
+		
+% 		\centering 
+% 		\caption{Tabel bewarna(2)}
+% 		\label{tab:cthwarna2}
+% 		\begin{tabular}{ccccc}
+% 			\toprule
+% 			 & $v_{start}$ & $\mathcal{S}_{1}$ & $\mathcal{S}_{2}$ & $v_{end}$\\
+			
+% 			\midrule
+% 			$\tau_{1}$ & 1 & 12& 5 \cellcolor{red} &20\\
+% 			$\tau_{2}$ & 1 &  &  8 \cellcolor{green} &20\\
+% 			$\tau_{3}$ & 1 & 9 & 2/8/17 \cellcolor{green} &20\\
+% 			$\tau_{4}$ & 1 &   & \cellcolor{red} &20\\
+			
+% 			\bottomrule
+		
+% 		\end{tabular}
+% 	\end{minipage}
+% \end{table}
+
  
-\dtext{17-18}
-\begin{figure} 
-	\centering  
-	\includegraphics[scale=1]{ular-png}  
-	\caption[Gambar {\it Serpentes} dalam format png]{Gambar {\it Serpentes} dalam format png} 
-	\label{fig:ularpng} 
-\end{figure} 
+% \subsection{Kutipan}
+% \label{subs:kutipan} 
+% Berikut contoh kutipan dari berbagai sumber, untuk keterangan lebih lengkap, silahkan membaca file referensi.bib yang disediakan juga di template ini.
+% Contoh kutipan:
+% \begin{itemize}
+% 	\item Buku:~\cite{berg:08:compgeom} 
+% 	\item Bab dalam buku:~\cite{kreveld:04:GIS}
+% 	\item Artikel dari Jurnal:~\cite{buchin:13:median}
+% 	\item Artikel dari prosiding seminar/konferensi:~\cite{kreveld:11:median}
+% 	\item Skripsi/Thesis/Disertasi:~\cite{lionov:02:animasi}~\cite{wiratma:10:following}~\cite{wiratma:22:later}
+% 	\item Technical/Scientific Report:~\cite{kreveld:07:watertight}
+% 	\item RFC (Request For Comments):~\cite{RFC1654}
+% 	\item Technical Documentation/Technical Manual:~\cite{Z.500}~\cite{unicode:16:stdv9}~\cite{google:16:and7}
+% 	\item Paten:~\cite{webb:12:comm}
+% 	\item Tidak dipublikasikan:~\cite{wiratma:09:median}~\cite{lionov:11:cpoly}
+% 	\item Laman web:~\cite{erickson:03:cgmodel}  
+% 	\item Lain-lain:~\cite{agung:12:tango}
+% \end{itemize}    
+  
+% \subsection{Gambar}
 
-\dtext{19-20}
-\begin{figure}[H]
-	\centering  
-	\includegraphics[scale=0.5]{ular-jpg}  
-	\caption[Ular kecil]{Ular kecil} 
-	\label{fig:ularjpg} 
-\end{figure} 
-\dtext{21-22}
+% Pada hampir semua editor, penempatan gambar di dalam dokumen \LaTeX{} tidak dapat dilakukan melalui proses {\it drag and drop}.
+% Perhatikan contoh pada file bab2.tex untuk melihat bagaimana cara menempatkan gambar.
+% Beberapa hal yang harus diperhatikan pada saat menempatkan gambar:
+% \begin{itemize}
+% 	\item Setiap gambar {\bf harus} diacu di dalam teks (gunakan {\it field} {\sc label})
+% 	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $[$ dan $]$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
+% 	\item Jenis file yang dapat digunakan sebagai gambar cukup banyak, tetapi yang paling populer adalah tipe {\sc png} (lihat Gambar~\ref{fig:ularpng}), tipe {\sc jpg} (Gambar~\ref{fig:ularjpg}) dan tipe {\sc pdf} (Gambar~\ref{fig:ularpdf})
+% 	\item Besarnya gambar dapat diatur dengan {\it field} {\sc scale}.
+% 	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $[$ dan $]$ setelah deklarasi gambar.
+% 	Yang umum digunakan adalah {\bf H} untuk menempatkan gambar {\bf sesuai} penempatannya di file .tex atau  {\bf h} yang berarti "kira-kira" di sini. \\
+% 	Jika tidak menggunakan {\it placement specifier}, \LaTeX{} akan menempatkan gambar secara otomatis untuk menghindari bagian kosong pada dokumen anda.
+% 	Walaupun cara ini sangat mudah, hindarkan terjadinya penempatan dua gambar secara berurutan. 	
+% 	\begin{itemize}
+% 		\item Gambar~\ref{fig:ularpng} ditempatkan di bagian atas halaman, walaupun penempatannya dilakukan setelah penulisan 3 paragraf setelah penjelasan ini.
+% 		\item Gambar~\ref{fig:ularjpg} dengan skala 0.5 ditempatkan di antara dua buah paragraf. Perhatikan penulisannya di dalam file bab2.tex!
+% 		\item Gambar~\ref{fig:ularpdf} ditempatkan menggunakan {\it specifier} {\bf h}.
+% 	\end{itemize}
+% \end{itemize}
+ 
+% \dtext{17-18}
+% \begin{figure} 
+% 	\centering  
+% 	\includegraphics[scale=1]{ular-png}  
+% 	\caption[Gambar {\it Serpentes} dalam format png]{Gambar {\it Serpentes} dalam format png} 
+% 	\label{fig:ularpng} 
+% \end{figure} 
 
-\begin{figure}[ht] 
-	\centering  
-	\includegraphics[scale=1]{ular-pdf}  
-	\caption[ {\it Serpentes} betina]{ {\it Serpentes} jantan} 
-	\label{fig:ularpdf} 
-\end{figure} 
+% \dtext{19-20}
+% \begin{figure}[H]
+% 	\centering  
+% 	\includegraphics[scale=0.5]{ular-jpg}  
+% 	\caption[Ular kecil]{Ular kecil} 
+% 	\label{fig:ularjpg} 
+% \end{figure} 
+% \dtext{21-22}
+
+% \begin{figure}[ht] 
+% 	\centering  
+% 	\includegraphics[scale=1]{ular-pdf}  
+% 	\caption[ {\it Serpentes} betina]{ {\it Serpentes} jantan} 
+% 	\label{fig:ularpdf} 
+% \end{figure} 
  
