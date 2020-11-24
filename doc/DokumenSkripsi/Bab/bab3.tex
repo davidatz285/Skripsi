@@ -1,37 +1,112 @@
 \chapter{Analisis}
 \label{chap:analisis}
 
-Pada bab ini akan dijelaskan analisis sistem yang sudah berjalan dan sistem yang akan dibangun. Analisis yang akan dibahas meliputi analisis 
+Pada bab ini akan dijelaskan analisis sistem yang sudah berjalan dan sistem yang akan dibangun. Analisis yang akan dibahas meliputi analisis \textit{use case}, analisis kelas, analisis kebutuhan fungsional dan non fungsional.
 
-\section{Analisis Sistem Berjalan}
+\section{Analisis Sistem Kini}
 %Analisis student portal unpar dan if student portal
-Student Portal UNPAR adalah situs yang diperuntukan bagi mahasiswa UNPAR untuk mengakses informasi yang berhubungan dengan studi dan mahasiswa pemilik akun\cite{BTI:2012}. Mahasiswa dapat mengakses Student Portal UNPAR melalui URL \url{https://studentportal.unpar.ac.id/}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
+% 
 
-IF Student Portal adalah situs yang diperuntukan bagi mahasiswa IF UNPAR\cite{ifstudentportalunpar}. IF Student Portal dibuat dengan tujuan menjadi pengembangan lebih lanjut dari Student Portal UNPAR pada masanya. IF Student Portal adalah hasil skripsi Herfan Heryandi \cite{herfan:15:portal} dan kontributor lainnya. Saat ini IF Student Portal telah mendukung kurikulum 2018 berkat kontribusi skripsi Andrianto Sugiarto \cite{andrianto:18:portalsiam}. Mahasiswa Teknik Informatika dapat mengakses IF Student Portal melalui URL \url{https://ifstudentportal.herokuapp.com/}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
+IF Student Portal adalah situs yang diperuntukan bagi mahasiswa IF UNPAR\cite{ifstudentportalunpar}. IF Student Portal dibuat dengan tujuan menjadi pengembangan lebih lanjut dari Student Portal UNPAR pada masanya. IF Student Portal adalah hasil skripsi Herfan Heryandi \cite{herfan:15:portal} dan kontributor lainnya. Saat ini IF Student Portal telah mendukung kurikulum 2018 berkat kontribusi skripsi Andrianto Sugiarto \cite{andrianto:18:portalsiam}\footnote{Mahasiswa Teknik Informatika dapat mengakses IF Student Portal melalui URL \url{https://ifstudentportal.herokuapp.com/}}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
 
-SIAModels merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018. 
+SIA Models merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018. 
 
-
-\section{Analisis sistem usulan}
-Analisis
 \subsection{Persiapan}
-Sebelum dan sambil proses pengembangan aplikasi \textit{android} IF Student Portal berjalan, ada beberapa pekerjaan yang dilakukan sebagai berikut :
+Sebelum dan selama proses pengembangan aplikasi \textit{android} IF Student Portal berjalan, ada beberapa pekerjaan yang dilakukan sebagai berikut :
 \begin{itemize}
     \item Perawatan situs IF Student Portal\\
-    IF Student Portal beberapa kali mengalami gangguan sehingga tidak bisa digunakan sebagaimana mestinya, sehingga dilakukan perbaikan-perbaikan yang diperlukan. Perubahan dapat dilihat di \url{https:www.github.com/ftisunpar/ifstudentportal/}.
+    IF Student Portal beberapa kali mengalami gangguan sehingga tidak bisa digunakan sebagaimana mestinya, sehingga dilakukan perbaikan-perbaikan yang diperlukan. Perubahan yang dilakukan adalah sebagai berikut \footnote{Kode dapat dilihat di \url{https:www.github.com/ftisunpar/ifstudentportal/}.} :
+    \begin{itemize}
+        \item Memperbaiki \textit{bug} alamat foto profil dari Student Portal UNPAR.
+        \item Memperbaiki \textit{bug} mengambil kode semester ddari Student Portal UNPAR dengan memindahkan halaman sumber kode semester dari halaman frs ke halaman nilai.
+        \item Merubah penggunaan SIA Models dari \textit{submodule} ke \textit{Maven}.
+    \end{itemize}
     \item Perawatan SIA Models\\
-    SIA Models versi 3.1.0 belum cocok untuk digunakan di platform \textit{android} sehingga perlu sedikit modifikasi agar bisa digunakan untuk pembangunan \textit{android} IF Student Portal. Perubahan dapat dilihat di \url{https:www.github.com/pascalalfadian/siamodels/}.
-    
+    SIA Models versi 3.1.0 belum cocok untuk digunakan di platform \textit{android} sehingga perlu sedikit modifikasi agar bisa digunakan untuk pembangunan \textit{android} IF Student Portal. Perubahan yang dilakukan adalah sebagai berikut\footnote{Kode dapat dilihat di \url{https:www.github.com/pascalalfadian/siamodels/}.} :
+    \begin{itemize}
+        \item Merubah nilai kembalian dari \textit{method getPhotoImage} menjadi \textit{byte}.
+    \end{itemize}
 \end{itemize}
 
-\subsection{Analisis Kebutuhan \textit{Android} IF Student Portal}
-Aplikasi \textit{android} IF Student Portal akan memiliki fitur-fitur yang sudah ada di situs IF Student Portal. Fitur-fitur tersebut akan diimplementasikan dan diintegrasikan dengan fitur-fitur \textit{android} jika memungkinkan. Untuk mengetahui fitur apa lagi yang dibutuhkan...
 
-Fitur-fitur baru yang akan diimplementasikan harus memenuhi kriteria berikut :
+\section{Analisis Sistem Usulan}
+Analisis
+
+\subsection{Analisis Kebutuhan \textit{Android} IF Student Portal}
+\label{kebutuhan}
+Aplikasi \textit{android} IF Student Portal akan memiliki fitur-fitur yang sudah ada di situs IF Student Portal. Fitur-fitur tersebut akan diimplementasikan dan diintegrasikan dengan fitur-fitur \textit{android} jika memungkinkan. Untuk mengetahui fitur apa lagi yang dibutuhkan, dibuat survey untuk meminta pendapat kepada mahasiswa Teknik Informatika angkatan 2016-2020. Dari hasil survey, diperoleh fitur yang diinginkan oleh mahasiswa adalah sebagai berikut :
+\begin{itemize}
+    \item Jadwal mata kuliah yang terintegrasi dengan kalender sistem.
+    \item Notifikasi yang berisi informasi seputar perkuliahan.
+    \item Simulasi sederhana untuk masa FRS (pengecekan jadwal bentrok, jumlah sks, prasyarat).
+    \item Tempat melihat pengumuman yang bisa di urutkan dan rapi.
+    \item Tempat melihat jadwal akademik di selain jadwal kuliah mahasiswa (jam kerja Tata Usaha, jadwal tes TOEFL). 
+    \item Rincian mata kuliah (informasi presentase lulus, materi kuliah, tingkat kesulitan, dll)
+    \item Ringkasan data akademik dan syarat kelulusan
+\end{itemize}
+
+Fitur-fitur baru yang akan diimplementasikan akan memenuhi kriteria berikut :
 \begin{itemize}
     \item Data yang diperlukan tersedia di Student Portal UNPAR.
     \item Data hasil olahan tidak tersedia  di Student Portal UNPAR.
     \item Fitur mendukung fungsi Student Portal sebagai sumber informasi akademik.
+    \item Bisa diintegrasikan dengan fitur android.
 \end{itemize}
+
+Hasil analisis fitur-fitur yang diinginkan berdasarkan kriteria di atas dan batas waktu pembangunan aplikasi dapat dilihat pada Tabel \ref{tab:3_hasil_fitur}.
+\begin{table}[H]
+	\centering
+		\caption{Tabel Hasil Analisis Kebutuhan Informatika Student Portal}
+    \begin{tabular}{|p{4.5cm}|p{2.5cm}|p{8cm}|}
+		\hline
+		Fitur & Dibuat/Tidak dibuat & Alasan\\
+		\hline
+		Simulasi FRS sederhana                      & Dibuat (mungkin)       & Data dapat diambil dari Portal Akademik Mahasiswa dan aturan prasyarat mata kuliah Program Studi Teknik Informatika sudah tersedia di SIA Models                   \\
+		\hline
+    Tempat melihat pengumuman yang bisa di urutkan dan rapi.                               & Dibuat (mungkin)      & Data dapat diambil dari student portal UNPAR                       \\
+		\hline
+    Tempat melihat jadwal akademik di selain jadwal kuliah mahasiswa (jam kerja Tata Usaha, jadwal tes TOEFL).    & Tidak Dibuat       &  Data tidak tersedia di student portal UNPAR \\
+		\hline
+    Jadwal kuliah yang terintegrasi dengan kalender sistem                       & Dibuat       & Data tersedia di student portal UNPAR dan terintegrasi dengan fitur android                                                     \\
+		\hline
+    Rincian mata kuliah                               & Tidak dibuat & Data tidak bisa diperoleh dari Portal Akademik Mahasiwa                                               \\
+		\hline
+    Notifikasi yang berisi informasi seputar perkuliahan                                    & Dibuat & Data tersedia di student portal UNPAR dan terintegrasi dengan fitur android                                                                        \\
+	    \hline
+	    Ringkasan data akademik dan syarat kelulusan                                  & Dibuat & Data tersedia di student portal UNPAR                                                                       \\
+	    \hline
+		
+		\end{tabular}
+	\label{tab:3_hasil_fitur}
+\end{table}
 \subsection{Analisis Use Case}
+Diagram \textit{use case} hanya akan memiliki 1 aktor yaitu mahasiswa Teknik Informatika UNPAR. Diagram \textit{use case} dapat dilihat di gambar \ref{}. 
+
+Berdasarkan hasil analisis kebutuhan pada subbab \ref{kebutuhan}, dari x fitur yang akan dibuat, terdapat y buah \textit{use case} yaitu :
+\begin{enumerate}
+    \item \textbf{Melihat Ringkasan Data Akademik}
+		\begin{itemize}
+			\item Nama: Melihat ringkasan data akademik
+			\item Aktor: Mahasiswa
+			\item Deskripsi: melihat data mengenai mata kuliah apa saja yang sudah lulus beserta jenis mata kuliahnya(wajib atau pilihan), sisa SKS untuk mencapai kelulusan, dan mata kuliah wajib yang belum ditempuh. 
+			\item Kondisi awal: Mahasiswa telah \textit{login}
+			\item Kondisi akhir: Halaman ditampilkan dan berisi ringkasan data akademik
+			\item Skenario utama: \\ \\
+			\begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+						\hline
+							No 	& Aksi Aktor & Reaksi Sistem \\ \hline
+							1 	& Mahasiswa memilih menu ringkasan data akademik. 	&	Sistem meringkas data kademik mahasiswa kemudian menampilkan halaman ringkasan data akademik \\ \hline 
+						\end{tabular} 
+			%\item Eksepsi: Mahasiswa sedang menempuh semester 1
+		\end{itemize}
+\end{enumerate}
+
+
+
 \subsection{Analisis Kelas}
+
+
+
+
+
+% Student Portal UNPAR adalah situs yang diperuntukan bagi mahasiswa UNPAR untuk mengakses informasi yang berhubungan dengan studi dan mahasiswa pemilik akun\cite{BTI:2012}. Mahasiswa dapat mengakses Student Portal UNPAR melalui URL \url{https://studentportal.unpar.ac.id/}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 

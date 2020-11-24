@@ -6,9 +6,149 @@
 \label{sec:latar} 
 Pada bab ini akan dijelaskan dasar teori mengenai jsoup, \textit{android design}, arsitektur \textit{MVP(Model-View-Presenter},  
 
-\section{\textit{Library jsoup}}
+\section{\textit{Jsoup}}
 \label{sec:jsoup}
-Jsoup adalah \textit{library} Java yang digunakan untuk mengambil data berupa HTML dari sebuah situs. Data HTML tersebut bisa digunakan untuk memperoleh informasi yang diperlukan dari suatu situs\cite{jsoup}. \textit{Library jsoup} ini bisa digunakan saat sebuah situs tidak menyediakan API untuk memberikan datanya.  
+Jsoup adalah \textit{library} Java yang digunakan untuk mengambil data berupa HTML dari sebuah situs. Data HTML tersebut bisa digunakan untuk memperoleh informasi yang diperlukan dari suatu situs\cite{jsoup}. \textit{Library jsoup} ini bisa digunakan saat sebuah situs tidak menyediakan API untuk memberikan datanya. Kelas-kelas yang digunakan dari \textit{library} ini akan dijelaskan di sub bab berikut.
+
+\subsection{Jsoup}
+
+Kelas ini merupakan kelas utama dalam \textit{library} jsoup. Seluruh \textit{method} dalam kelas ini adalah \texttt{static} \textit{method} sehingga kelas ini tidak perlu dikonstruksi terlebih dahulu sebelum menggunakan \textit{method} dari kelas ini. Salah satu \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+\begin{itemize}
+	\item \textbf{public static Connection connect(String url)} \\
+		Berfungsi untuk membuat koneksi baru dengan suatu situs web. \\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{url} URL situs web dengan protokol HTTP atau HTTPS.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi dengan situs web.
+\end{itemize}
+
+\subsection{Connection}
+
+Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari situs web. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item \textbf{Connection cookies(Map<String,String> cookies)} \\
+		Berfungsi untuk menambahkan \textit{cookie}. \\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{cookies} \texttt{Map} dari \textit{cookie}.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi \textit{cookies}.
+		
+		\item \textbf{Connection data(String key, String value)} \\
+		Berfungsi untuk menambahkan parameter data yang bisa dikirim melalui metode HTTP GET atau POST. \\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{key} kunci data.
+			\item \textbf{value} nilai data.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi parameter data.
+		
+		\item \textbf{Connection method(Connection.Method method)} \\
+		Berfungsi untuk mengatur metode permintaan HTTP, GET atau POST. Metode pengiriman secara \textit{default} adalah GET\\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{method} metode pengiriman permintaan HTTP.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi yang sama tetapi sudah diatur metode permintaannya.
+		
+		\item \textbf{Connection timeout(int millis)} \\
+		Berfungsi untuk mengatur batas waktu \textit{request}. Batas waktu nol akan dianggap sebagai batas waktu yang tak terhingga. \\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{millis} batas waktu dalam milidetik.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi batas waktu untuk \textit{request}.
+		
+		\item \textbf{Connection validateTLSCertificates(boolean value)} \\
+		Berfungsi untuk mengatur pemeriksaan sertifikat TLS untuk permintaan HTTPS. Nilai \texttt{true} untuk memeriksa dan nilai \texttt{false} untuk tidak memeriksa.\\
+		\textbf{Parameter:}
+		\begin{itemize}
+			\item \textbf{value} status pemeriksaan sertifikat TLS.
+		\end{itemize}
+		\textbf{Kembalian:} koneksi yang sama tetapi sudah diatur pemeriksaan sertifikatnya.
+		
+		\item \textbf{Connection.Response execute()} \\
+		Berfungsi untuk mengirim permintaan HTTP.\\
+		\textbf{Kembalian:} objek \texttt{Response}.	
+\end{itemize}
+
+\subsection{Response}
+
+Kelas ini merepresentasikan permintaan HTTP. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+\begin{itemize}
+	\item \textbf{Map<String,String> cookies()} \\
+		\textit{Method} ini berfungsi untuk mendapatkan seluruh \textit{cookies}. \\
+		\textbf{Kembalian:} seluruh \textit{cookies}.	
+		
+		\item \textbf{Document parse()} \\
+		Berfungsi untuk merubah \textit{body} jawaban menjadi dokumen. \\
+		\textbf{Kembalian:} dokumen yang sudah dirubah.
+		
+		\item \textbf{String body()} \\
+		Berfungsi untuk mendapatkan \textit{body} jawaban dalam bentuk \textit{string}. \\
+		\textbf{Kembalian:} \textit{body} jawaban dalam bentuk \textit{string}.
+\end{itemize}
+
+\subsection{Document}
+
+Kelas ini merepresentasikan dokumen HTML. Salah satu \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+\begin{itemize}
+	\item \textbf{public Elements select(String cssQuery)} \\
+		\textit{Method} ini diturunkan dari kelas Element, berfungsi untuk menemukan elemen HTML yang sesuai dengan kueri CSS. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{cssQuery} kueri CSS berupa CSS Selector.
+		\end{itemize}
+		\textbf{Kembalian:} elemen-elemen HTML yang sesuai dengan kueri CSS.	
+\end{itemize}
+
+\subsection{Elements}
+
+Kelas ini merepresentasikan kumpulan elemen HTML. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+\begin{itemize}
+	\item \textbf{public Elements select(String query)} \\
+		Berfungsi untuk menemukan elemen-elemen yang sesuai dalam \textit{list} elemen. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{query} kueri CSS berupa CSS Selector.
+		\end{itemize}
+		\textbf{Kembalian:} elemen-elemen yang sudah diseleksi sesuai kueri.	
+		
+		\item \textbf{public String val()} \\
+		Berfungsi untuk mendapatkan nilai dari elemen pertama. \\
+		\textbf{Kembalian:} nilai elemen.	
+		
+		\item \textbf{public String text()} \\
+		\textit{Method} Berfungsi untuk mendapatkan kombinasi teks dari seluruh elemen yang sesuai. \\
+		\textbf{Kembalian:} seluruh teks dalam \textit{string}.	
+\end{itemize}
+
+\subsection{Element}
+
+Kelas ini merepresentasikan sebuah elemen HTML yang berisikan \textit{tag}, atribut, dan anak elemen. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+\begin{itemize}
+	\item \textbf{public Element child(int index)} \\
+		Berfungsi untuk mendapatkan anak elemen berdasarkan nomor indeks. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{index} nomor index.
+		\end{itemize}
+		\textbf{Kembalian:} anak elemen.	
+		
+		\item \textbf{public Element children()} \\
+		Berfungsi untuk mendapatkan seluruh anak elemen. \\
+		\textbf{Kembalian:} seluruh anak elemen.	
+		
+		\item \textbf{public String className()} \\
+		Berfungsi untuk mendapatkan nama kelas elemen. \\
+		\textbf{Kembalian:} nama kelas elemen.	
+		
+		\item \textbf{public String text()} \\
+		Berfungsi untuk mendapatkan teks dari elemen. \\
+		\textbf{Kembalian:} teks dalam \textit{string}.	
+\end{itemize}
 
 
 \section{\textit{Android Design}}
@@ -16,35 +156,99 @@ Jsoup adalah \textit{library} Java yang digunakan untuk mengambil data berupa HT
 Dalam mengembangkan aplikasi \textit{android}, ada pedoman desain yang diberikan. Desain tampilan aplikasi \textit{android} mengacu pada \textit{Android Material design}. Pedoman kualitas aplikasi juga diberikan untuk aspek kompabilitas, keamanan, peforma, dll. Kedua pedoman ini diberikan agar aplikasi yang dihasilkan bisa memiliki tampilan dan perilaku yang konsisten dengan platform \textit{android}. 
  
 \subsection{\textit{Material Design}}
-\textit{Material Design} terdiri dari panduan, komponen, dan alat-alat untuk mendukung pembuatan tampilan antarmuka yang baik. \textit{Material Design} bertujuan mempermudah kolaborasi antara desainer dan pengembang aplikasi untuk membuat produk yang cantik dengan cepat\cite{materialdesign}.
+\textit{Material Design} terdiri dari panduan, komponen, dan alat-alat untuk mendukung pembuatan tampilan antarmuka yang baik. \textit{Material Design} bertujuan mempermudah kolaborasi antara desainer dan pengembang aplikasi untuk membuat produk yang cantik dengan cepat\cite{materialdesign}. Ada 2 panduan utama yang harus diikuti dari \textit{Material Design} yaitu panduan aksesibilitas dan panduan platform. 
+
+\subsubsection{Panduan Aksesibilitas}
+Aksesibilitas dapat diartikan sebagai tingkat kemudahan saat pengguna mempelajari dan menggunakan tampilan antarmuka aplikasi. Meningkatkan aksesibilitas akan meningkatkan \textit{usability} atau tingkat kebergunaan aplikasi kepada berbagai kalangan pengguna \cite{materialdesign}. Hal penting yang harus diperhatikan agar aplikasi memiliki aksesibilitas yang baik :
+\begin{itemize}
+    \item Hierarki : Elemen-elemen harus terlihat dengan jelas baik dari ukuran, kontras, dan infromasi yang terkandung di dalamnya. Elemen-elemen juga harus terurut berdasarkan kepentingan dan elemen dengan fungsi tertentu diletakan di tempat yang mudah dijangkau.
+    \item Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lamaa, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
+    \item Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.1 
+    \item Gambar : Gunakan gambar untuk memperjelas informasi yang disajikan. Gambar logo boleh tidak mematuhi panduan warna, kontras, dan ukuran teks, namun sebaiknya tetap memiliki fungsi (misalnya logo sebagai tombol ke halaman utama).  
+\end{itemize}
+
+\subsubsection{Panduan Platform}
+Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan untuk setiap platform. Platform yang dimaksud pada bagian ini adalah bagian-bagian dari komponen aplikasi android. Platform yang dimaksud adalah :
+\begin{itemize}
+    \item Notifikasi : notifikasi digunakan untuk memberi tahu komunikasi dari pengguna lain dan mengingatkan hal yang perlu dilakukan. Notifikasi bisa ditampilkan di halaman terkunci, di \textit{status bar}, dengan kedipan lampu LED, dan dengan suara dan getaran. Sebaiknya notifikasi tidak digunakan untuk promosi, meminta rating aplikasi, dan memberi tahu proses yang tidak berhubungan dengan pengguna. Pada saat layar terkunci sebaiknya notifikasi tidak menampilkan informasi yang sensitif. Notifikasi harus punya bagian \textit{header}, bagian konten, dan bagian aksi. 
+    \item Izin Akses (\textit{permission}) : Secara normal, aplikasi punya izin akses ke beberapa hal tanpa perlu memintanya kepada pengguna. Namun beberapa hal berikut membutuhkan konfirmasi dari pengguna agar aplikasi memiliki izin akses :
+    \begin{itemize}
+        \item Kalender : Mengakses dan mengatur kalender.
+        \item Kamera : Mengambil foto dan merekam video.
+        \item Kontak : Membaca dan mengatur kontak.
+        \item Lokasi : Membaca lokasi perangkat saat ini.
+        \item Mikrofon : Merekam suara.
+        \item Telepon : Membuat dan mengatur panggilan telepon.
+        \item Sensor tubuh : Membaca detak jantung dan hal sejenis lainnya.
+        \item Media penyimpanan : Mengakses dan menggunakan media penyimpanan.
+        \item SMS : Mengirim dan membaca SMS (pesan singkat).
+    \end{itemize}
+\end{itemize}
+
 \subsection{\textit{App Quality}}
 Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal pemasangan, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{android developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
 \begin{itemize}
     \item Desain visual dan interaksi pengguna
     \item Fungsionalitas
     \item Kompatibilitas, performa, dan stabilitas
-    \item Keamanan
+    \item Keamanan   
     \item \textit{Google Play}
 \end{itemize}
 Untuk keterangan lebih lanjut dari setiap poin diatas akan dijelaskan di bagian berikutnya.
 
 \subsubsection{Desain visual dan interaksi pengguna}
-Kriteria ini bertujuan memastikan aplikasi akan memiliki desain visual dan pola interaksi standar agar pengalaman pengguna konsisten dan intuitif\cite{androiddev}. Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. Aplikasi hanya menggunakan notifikasi untuk memberitahu perubahan yang terjadi dengan konteks yang berkaitan dengan pengguna pribadi dan untuk memberi tahu informasi/kontrol terhadap kejadian yang sedang berlangsung.
+Kriteria ini bertujuan memastikan aplikasi akan memiliki desain visual dan pola interaksi standar agar pengalaman pengguna konsisten dan intuitif\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
+\begin{itemize}
+    \item Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. 
+    \item Aplikasi hanya menggunakan notifikasi untuk memberitahu perubahan yang terjadi dengan konteks yang berkaitan dengan pengguna pribadi dan untuk memberi tahu informasi/kontrol terhadap kejadian yang sedang berlangsung.
+\end{itemize}
 
 \subsubsection{Fungsionalitas}
-Kriteria ini bertujuan memastikan aplikasi memberikan perilaku fungsional yang diharapkan, dengan tingkat izin yang sesuai \cite{androiddev}. Aplikasi hanya meminta izin untuk mendukung fungsionalitas aplikasi tersebut. Aplikasi tidak boleh meminta izin untuk mengakses data sensitif atau menggunakan layanan yang bisa membebani pengguna kecuali jika fitur inti aplikasi memerlukan izin tersebut.  Aplikasi harus berfungsi normal jika dipasang di kartu \textit{SD}. Audio tidak boleh diputar di layar utama, saat layar mati, dibalik layar, atau saat layar dikunci kecuali memutar audio adalah fitur utama. Jika memungkinkan aplikasi mendukung orientasi \textit{landscape} dan \textit{portrait}, dan menggunakan seluruh layar untuk kedua orientasi. Aplikasi tidak boleh membiarkan layanan tetap aktif saat di latar belakang layar, kecuali jika diperlukan fitur utama. Aplikasi mempertahankan status pengguna atau aplikasi saat meninggalkan latar depan dan mencegah kehilangan data tanpa sengaja akibat navigasi mundur dan perubahan status lainnya. 
+Kriteria ini bertujuan memastikan aplikasi memberikan perilaku fungsional yang diharapkan, dengan tingkat izin yang sesuai \cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
+\begin{itemize}
+    \item Aplikasi hanya meminta izin untuk mendukung fungsionalitas aplikasi tersebut. Aplikasi tidak boleh meminta izin untuk mengakses data sensitif atau menggunakan layanan yang bisa membebani pengguna kecuali jika fitur inti aplikasi memerlukan izin tersebut.
+    \item Aplikasi harus berfungsi normal jika dipasang di kartu \textit{SD}.
+    \item Audio tidak boleh diputar di layar utama, saat layar mati, dibalik layar, atau saat layar dikunci kecuali memutar audio adalah fitur utama.
+    \item Jika memungkinkan aplikasi mendukung orientasi \textit{landscape} dan \textit{portrait}, dan menggunakan seluruh layar untuk kedua orientasi.
+    \item Aplikasi tidak boleh membiarkan layanan tetap aktif saat di latar belakang layar, kecuali jika diperlukan fitur utama.
+    \item Aplikasi mempertahankan status pengguna atau aplikasi saat meninggalkan latar depan dan mencegah kehilangan data tanpa sengaja akibat navigasi mundur dan perubahan status lainnya. 
+\end{itemize}
 
 \subsubsection{Kompatibilitas, Performa, dan Stabilitas}
-Kriteria ini bertujuan memastikan aplikasi memberikan kompatibilitas, performa, stabilitas, dan daya respons yang diharapkan oleh pengguna \cite{androiddev}. Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan. Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat. Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala. Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}). Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya. Aplikasi menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian. Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan. 
+Kriteria ini bertujuan memastikan aplikasi memberikan kompatibilitas, performa, stabilitas, dan daya respons yang diharapkan oleh pengguna \cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
+\begin{itemize}
+    \item Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan.
+    \item Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat.
+    \item Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala.
+    \item Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya.
+    \item Aplikasi menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian.
+    \item Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan. 
+    \item Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}).  
+\end{itemize}   
 
 \subsubsection{Keamanan}
-Kriteria ini bertujuan memastikan aplikasi menangani dan mengamankan data pengguna dan informasi pribadi dengan benar\cite{androiddev}. Aplikasi harus menyimpan data pribadi di penyimpanan internal aplikasi dan tidak boleh mencatat data pribadi di log. Aplikasi harus memverifikasi data eksternal sebelum digunakan. Semua komponen aplikasi yang berbagi konten dengan aplikasi lain menetapkan (dan memberlakukan) izin yang sesuai, termasuk aktivitas, layanan, penerima siaran, dan khususnya penyedia konten. Aplikasi hanya boleh mengekspor komponen aplikasi yang membagikan data dengan aplikasi lain, atau komponen yang harus dipanggil oleh aplikasi lain. Aplikasi harus menyatakan konfigurasi keamanan jaringan dan semua lalu lintas jaringan dilakukan melalui \textit{SSL}. Jika aplikasi menggunakan layanan \textit{Google Play}, inisialisasi keamanan dilakukan saat aplikasi dimulai. Aplikasi harus menggunakan dependensi, \textit{library} dan \textit{SDK} terbaru. Aplikasi tidak boleh menjalankan kode dari luar aplikasi secara dinamis. Aplikasi harus menggunakan algoritma kriptografi kuat yang disediakan oleh platform.
+Kriteria ini bertujuan memastikan aplikasi menangani dan mengamankan data pengguna dan informasi pribadi dengan benar\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut :
+\begin{itemize}
+    \item Aplikasi harus menyimpan data pribadi di penyimpanan internal aplikasi dan tidak boleh mencatat data pribadi di log.
+    \item Aplikasi harus memverifikasi data eksternal sebelum digunakan.
+    \item Semua komponen aplikasi yang berbagi konten dengan aplikasi lain menetapkan (dan memberlakukan) izin yang sesuai, termasuk aktivitas, layanan, penerima siaran, dan khususnya penyedia konten.
+    \item Aplikasi hanya boleh mengekspor komponen aplikasi yang membagikan data dengan aplikasi lain, atau komponen yang harus dipanggil oleh aplikasi lain.
+    \item Aplikasi harus menyatakan konfigurasi keamanan jaringan dan semua lalu lintas jaringan dilakukan melalui \textit{SSL}.
+    \item Jika aplikasi menggunakan layanan \textit{Google Play}, inisialisasi keamanan dilakukan saat aplikasi dimulai.
+    \item Aplikasi harus menggunakan dependensi, \textit{library} dan \textit{SDK} terbaru.
+    \item Aplikasi tidak boleh menjalankan kode dari luar aplikasi secara dinamis.
+    \item Aplikasi harus menggunakan algoritma kriptografi kuat yang disediakan oleh platform.
+\end{itemize}       
 
 \subsubsection{\textit{Google Play}}
-Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi standar dan syarat untuk dipublikasikan di layanan \textit{Google Play}\cite{androiddev}. Aplikasi mematuhi Kebijakan Materi Pengembang \textit{Google Play} (tidak menawarkan materi tidak pantas, tidak menggunakan hak kekayaan intelektual atau merk orang lain, dll). Aplikasi sudah memenuhi kriteria yang sudah diuraikan sebelum bagian ini. Pengembang aplikasi harus mengatasi \textit{bug} yang disampaikan di halaman ulasan di layanan \textit{Google Play} jika \textit{bug} tersebut ditemukan di banyak perangkat dan berulang kali atau ditemukan di perangkat terbaru atau perangkat paling populer.    
+Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi standar dan syarat untuk dipublikasikan di layanan \textit{Google Play}\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut :
+\begin{itemize}
+    \item Aplikasi mematuhi Kebijakan Materi Pengembang \textit{Google Play} (tidak menawarkan materi tidak pantas, tidak menggunakan hak kekayaan intelektual atau merk orang lain, dll).
+    \item Aplikasi sudah memenuhi kriteria yang sudah diuraikan sebelum bagian ini.
+    \item Pengembang aplikasi harus mengatasi \textit{bug} yang disampaikan di halaman ulasan di layanan \textit{Google Play} jika \textit{bug} tersebut ditemukan di banyak perangkat dan berulang kali atau ditemukan di perangkat terbaru atau perangkat paling populer.    
+\end{itemize}  
 
-\section{Arsitektur \textit{MVP(Model-View-Presenter)}}
-\textit{MVP(Model-View-Presenter)} adalah salah satu arsitektur yang umum digunakan di aplikasi\newline \textit{android}. Arsitektur \textit{MVP} mencegah ketergantungan tampilan dengan model. Arsitektur \textit{MVP} juga memudahkan pemeliharaan aplikasi dan mengurangi kompleksitas kode. Arsitektur \textit{MVP} juga memudahkan pengujian baik dari sisi tampilan maupun fungsi kode \cite{arif:20:audit}.
+
 % \subsection{Tabel}  
 % Berikut adalah contoh pembuatan tabel. 
 % Penempatan tabel dan gambar secara umum diatur secara otomatis oleh \LaTeX{}, perhatikan contoh di file bab2.tex untuk melihat bagaimana cara memaksa tabel ditempatkan sesuai keinginan kita.
