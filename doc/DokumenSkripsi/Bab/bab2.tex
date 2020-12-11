@@ -18,7 +18,7 @@ Kelas ini merupakan kelas utama dalam \textit{library} jsoup. Seluruh \textit{me
 		Berfungsi untuk membuat koneksi baru dengan suatu situs web. \\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{url} URL situs web dengan protokol HTTP atau HTTPS.
+			\item \textbf{url} : URL situs web dengan protokol HTTP atau HTTPS.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi dengan situs web.
 \end{itemize}
@@ -32,7 +32,7 @@ Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari 
 		Berfungsi untuk menambahkan \textit{cookie}. \\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{cookies} \texttt{Map} dari \textit{cookie}.
+			\item \textbf{cookies} : \texttt{Map} dari \textit{cookie}.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi \textit{cookies}.
 		
@@ -40,8 +40,8 @@ Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari 
 		Berfungsi untuk menambahkan parameter data yang bisa dikirim melalui metode HTTP GET atau POST. \\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{key} kunci data.
-			\item \textbf{value} nilai data.
+			\item \textbf{key} : kunci data.
+			\item \textbf{value} : nilai data.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi parameter data.
 		
@@ -49,7 +49,7 @@ Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari 
 		Berfungsi untuk mengatur metode permintaan HTTP, GET atau POST. Metode pengiriman secara \textit{default} adalah GET\\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{method} metode pengiriman permintaan HTTP.
+			\item \textbf{method} : metode pengiriman permintaan HTTP.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi yang sama tetapi sudah diatur metode permintaannya.
 		
@@ -57,7 +57,7 @@ Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari 
 		Berfungsi untuk mengatur batas waktu \textit{request}. Batas waktu nol akan dianggap sebagai batas waktu yang tak terhingga. \\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{millis} batas waktu dalam milidetik.
+			\item \textbf{millis} : batas waktu dalam milidetik.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi yang sama tetapi sudah diberi batas waktu untuk \textit{request}.
 		
@@ -65,7 +65,7 @@ Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari 
 		Berfungsi untuk mengatur pemeriksaan sertifikat TLS untuk permintaan HTTPS. Nilai \texttt{true} untuk memeriksa dan nilai \texttt{false} untuk tidak memeriksa.\\
 		\textbf{Parameter:}
 		\begin{itemize}
-			\item \textbf{value} status pemeriksaan sertifikat TLS.
+			\item \textbf{value} : status pemeriksaan sertifikat TLS.
 		\end{itemize}
 		\textbf{Kembalian:} koneksi yang sama tetapi sudah diatur pemeriksaan sertifikatnya.
 		
@@ -99,7 +99,7 @@ Kelas ini merepresentasikan dokumen HTML. Salah satu \textit{method} yang dimili
 		\textit{Method} ini diturunkan dari kelas Element, berfungsi untuk menemukan elemen HTML yang sesuai dengan kueri CSS. \\
 		\textbf{Parameter:} 
 		\begin{itemize}
-			\item \textbf{cssQuery} kueri CSS berupa CSS Selector.
+			\item \textbf{cssQuery} : kueri CSS berupa CSS Selector.
 		\end{itemize}
 		\textbf{Kembalian:} elemen-elemen HTML yang sesuai dengan kueri CSS.	
 \end{itemize}
@@ -112,7 +112,7 @@ Kelas ini merepresentasikan kumpulan elemen HTML. Beberapa \textit{method} yang 
 		Berfungsi untuk menemukan elemen-elemen yang sesuai dalam \textit{list} elemen. \\
 		\textbf{Parameter:} 
 		\begin{itemize}
-			\item \textbf{query} kueri CSS berupa CSS Selector.
+			\item \textbf{query} : kueri CSS berupa CSS Selector.
 		\end{itemize}
 		\textbf{Kembalian:} elemen-elemen yang sudah diseleksi sesuai kueri.	
 		
@@ -133,7 +133,7 @@ Kelas ini merepresentasikan sebuah elemen HTML yang berisikan \textit{tag}, atri
 		Berfungsi untuk mendapatkan anak elemen berdasarkan nomor indeks. \\
 		\textbf{Parameter:} 
 		\begin{itemize}
-			\item \textbf{index} nomor index.
+			\item \textbf{index} : nomor index.
 		\end{itemize}
 		\textbf{Kembalian:} anak elemen.	
 		
@@ -163,7 +163,7 @@ Aksesibilitas dapat diartikan sebagai tingkat kemudahan saat pengguna mempelajar
 \begin{itemize}
     \item Hierarki : Elemen-elemen harus terlihat dengan jelas baik dari ukuran, kontras, dan infromasi yang terkandung di dalamnya. Elemen-elemen juga harus terurut berdasarkan kepentingan dan elemen dengan fungsi tertentu diletakan di tempat yang mudah dijangkau.
     \item Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lamaa, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
-    \item Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.1 
+    \item Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.
     \item Gambar : Gunakan gambar untuk memperjelas informasi yang disajikan. Gambar logo boleh tidak mematuhi panduan warna, kontras, dan ukuran teks, namun sebaiknya tetap memiliki fungsi (misalnya logo sebagai tombol ke halaman utama).  
 \end{itemize}
 
@@ -172,7 +172,7 @@ Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan unt
 \begin{itemize}
     \item Notifikasi : notifikasi digunakan untuk memberi tahu komunikasi dari pengguna lain dan mengingatkan hal yang perlu dilakukan. Notifikasi bisa ditampilkan di halaman terkunci, di \textit{status bar}, dengan kedipan lampu LED, dan dengan suara dan getaran. Sebaiknya notifikasi tidak digunakan untuk promosi, meminta rating aplikasi, dan memberi tahu proses yang tidak berhubungan dengan pengguna. Pada saat layar terkunci sebaiknya notifikasi tidak menampilkan informasi yang sensitif. Notifikasi harus punya bagian \textit{header}, bagian konten, dan bagian aksi. 
     \item Izin Akses (\textit{permission}) : Secara normal, aplikasi punya izin akses ke beberapa hal tanpa perlu memintanya kepada pengguna. Namun beberapa hal berikut membutuhkan konfirmasi dari pengguna agar aplikasi memiliki izin akses :
-    \begin{itemize}
+    \begin{itemize} \label{subs:izin}
         \item Kalender : Mengakses dan mengatur kalender.
         \item Kamera : Mengambil foto dan merekam video.
         \item Kontak : Membaca dan mengatur kontak.
@@ -185,8 +185,8 @@ Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan unt
     \end{itemize}
 \end{itemize}
 
-\subsection{\textit{App Quality}}
-Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal pemasangan, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{android developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
+\subsection{Kualitas Aplikasi}
+Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal instalasi, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{android developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
 \begin{itemize}
     \item Desain visual dan interaksi pengguna
     \item Fungsionalitas
@@ -196,7 +196,7 @@ Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas apli
 \end{itemize}
 Untuk keterangan lebih lanjut dari setiap poin diatas akan dijelaskan di bagian berikutnya.
 
-\subsubsection{Desain visual dan interaksi pengguna}
+\subsubsection{Desain Visual dan Interaksi Pengguna}
 Kriteria ini bertujuan memastikan aplikasi akan memiliki desain visual dan pola interaksi standar agar pengalaman pengguna konsisten dan intuitif\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
 \begin{itemize}
     \item Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. 

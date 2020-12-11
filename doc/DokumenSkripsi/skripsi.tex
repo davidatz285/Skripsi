@@ -68,7 +68,10 @@
 \usepackage{xstring}%manipulasi string, strchar, ifstreq
 \usepackage[table]{xcolor}%untuk kode program
 \usepackage{pgffor}% untuk foreach
- 
+\usepackage{tabularx}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
 \newcommand{\vtemplateauthor}{lionov}
 \newcommand{\dtext}[1]{{\color{lightgray} \lipsum[#1]}}%command untuk dummy text
 \newcommand{\rtext}[1]{{\color{red} \small #1}}%command untuk default text
