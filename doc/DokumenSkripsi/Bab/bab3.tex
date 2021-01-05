@@ -1,25 +1,31 @@
 \chapter{Analisis}
 \label{chap:analisis}
 
-Pada bab ini akan dijelaskan analisis sistem yang sudah berjalan dan sistem yang akan dibangun. Analisis yang akan dibahas meliputi analisis \textit{use case}, analisis kelas, analisis kebutuhan fungsional dan non fungsional.
+Pada bab ini akan dijelaskan analisis sistem yang sudah berjalan dan sistem yang akan dibangun. Analisis yang akan dibahas meliputi analisis \textit{use case}, analisis kelas, analisis kebutuhan fungsional dan non fungsional, dan analisis pemenuhan panduan pembangunan aplikasi \textit{android}.
 
 \section{Analisis Sistem Kini}
-%Analisis student portal unpar dan IFStudentPortal
+%Analisis Portal Akademik Mahasiswa dan IFStudentPortal
 % 
 
-IFStudentPortal adalah situs yang diperuntukan bagi mahasiswa IF UNPAR\cite{ifstudentportalunpar}. IFStudentPortal dibuat dengan tujuan menjadi pengembangan lebih lanjut dari Student Portal UNPAR pada masanya. IFStudentPortal adalah hasil skripsi Herfan Heryandi \cite{herfan:15:portal} dan kontributor lainnya. Saat ini IFStudentPortal telah mendukung kurikulum 2018 berkat kontribusi skripsi Andrianto Sugiarto \cite{andrianto:18:portalsiam}\footnote{Mahasiswa Teknik Informatika dapat mengakses IFStudentPortal melalui URL \url{https://ifstudentportal.herokuapp.com/}}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
-
+IFStudentPortal adalah situs yang diperuntukan bagi mahasiswa Teknik Informatika UNPAR\cite{herfan:15:portal}. IFStudentPortal dibuat dengan tujuan menjadi pengembangan lebih lanjut dari Portal Akademik Mahasiswa pada masanya. IFStudentPortal adalah hasil skripsi Herfan Heryandi \cite{herfan:15:portal} dan kontributor lainnya. Saat ini IFStudentPortal telah mendukung kurikulum 2018 berkat kontribusi skripsi Andrianto Sugiarto \cite{andrianto:18:portalsiam}\footnote{Mahasiswa Teknik Informatika dapat mengakses IFStudentPortal melalui URL \url{https://ifstudentportal.herokuapp.com/}}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. Di halaman utama setelah login, terdapat tampilan profil mahasiswa, di sebelah kiri ada kolom menu untuk mengakses fitur-fitur IFStudentPortal seperti melihat ringkasan data akademik, melihat jadwal yang tersusun, dan melihat prasyarat mata kuliah.
+\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{Gambar/home}
+				\caption{Tampilan halaman utama IFStudentPortal} 
+				\label{fig:ifstudpor_home}
+			\end{figure}
+			
 SIA Models merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018. 
 
 \subsection{Analisis Fitur IFStudentPortal}
-IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di student portal UNPAR pada tahun 2015. Fitur-fitur yang diimplementasikan di IFStudentPortal adalah sebagai berikut : 
+IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di Portal Akademik Mahasiswa pada tahun 2015. Fitur-fitur yang diimplementasikan di IFStudentPortal adalah sebagai berikut : 
 \begin{enumerate}
     \item \textit{Login} : 
-    Untuk dapat menggunakan situs IFStudentPortal, mahasiswa Teknik Informatika UNPAR harus \textit{login} menggunakan akun dan kata sandi yang sama dengan yang digunakan untuk \textit{login} ke Student Portal UNPAR. 
+    Untuk dapat menggunakan situs IFStudentPortal, mahasiswa Teknik Informatika UNPAR harus \textit{login} menggunakan akun dan kata sandi yang sama dengan yang digunakan untuk \textit{login} ke Portal Akademik Mahasiswa. 
     \begin{itemize}
 			\item Nama: \textit{Login}
 			\item Aktor: Mahasiswa
-			\item Deskripsi: \textit{Login} ke IFStudentPortal dengan membuka koneksi ke Student Portal UNPAR
+			\item Deskripsi: \textit{Login} ke IFStudentPortal dengan membuka koneksi ke Portal Akademik Mahasiswa
 			\item Kondisi awal: Mahasiswa adalah mahasiswa program studi Teknik Informatika UNPAR
 			\item Kondisi akhir: Halaman utama IFStudentPortal ditampilkan 
 			\item Skenario utama: \\ \\
@@ -27,10 +33,16 @@ IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di
         \hline
             No & Aksi Aktor &  Reaksi Sistem \\ \hline     
             1 & Pengguna mengakses situs IFStudentPortal &  Sistem menampilkan halaman \textit{login}\\ \hline 
-            2 & Pengguna mengisi akun dan kata sandi lalu menekan tombol \textit{login} & Sistem membuka koneksi ke Student Portal UNPAR untuk melakukan pengecekan identitas \textit{login} \\ \hline 
+            2 & Pengguna mengisi akun dan kata sandi lalu menekan tombol \textit{login} & Sistem membuka koneksi ke Portal Akademik Mahasiswa untuk melakukan pengecekan identitas \textit{login} \\ \hline 
             3 & & Jika login berhasil maka sistem akan menampilkan halaman utama IFStudentPortal\\ \hline 
         \end{tabular}
     \end{itemize}
+    \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.5]{Gambar/login}
+				\caption{Tampilan Login} 
+				\label{fig:ifstudpor_login}
+			\end{figure}
     \item Prasyarat Mata Kuliah
     Mahasiswa bisa melihat mata kuliah apa saja yang dibuka di semester berjalan dan memeriksa prasyarat untuk mata kuliah tersebut. 
     \begin{itemize}
@@ -46,10 +58,15 @@ IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di
 							1 	& Mahasiswa memilih menu prasyarat mata kuliah. 	&	Sistem mendapatkan data mahasiswa kemudian menampilkan halaman prasyarat mata kuliah \\ \hline 
 						\end{tabular} 
 			\item Eksepsi: Mahasiswa sedang menempuh semester 1
-			
 		\end{itemize}
+		\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{Gambar/perwalian}
+				\caption{Tampilan halaman daftar prasyarat mata kuliah} 
+				\label{fig:ifstudpor_perwalianl}
+			\end{figure}
     \item Jadwal kuliah yang tersusun
-    Pada saat IFStudentPortal pertama kali dibangun, Student Portal UNPAR saat itu belum memiliki jadwal dengan tampilan grafik yang terurut berdasarkan hari dan jamnya. Fitur ini dibuat untuk mempermudah melihat susunan jadwal. 
+    Pada saat IFStudentPortal pertama kali dibangun, Portal Akademik Mahasiswa saat itu belum memiliki jadwal dengan tampilan grafik yang terurut berdasarkan hari dan jamnya. Fitur ini dibuat untuk mempermudah melihat susunan jadwal. 
     \begin{itemize}
 			\item Nama: Melihat jadwal kuliah
 			\item Aktor: Mahasiswa
@@ -64,8 +81,14 @@ IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di
 							1 	& Mahasiswa memilih menu jadwal. 	&	Sistem menyusun dan mengurutkan jadwal mahasiswa berdasarkan hari kemudian menampilkan halaman jadwal \\ \hline 
 						\end{tabular} 
 		\end{itemize}
+		\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{Gambar/jadwal}
+				\caption{Tampilan halaman jadwal kuliah yang tersusun} 
+				\label{fig:ifstudpor_jadwal}
+			\end{figure}
     \item Melihat ringkasan data akademik
-    Pada saat IFStudentPortal pertama kali dibangun, Student Portal UNPAR saat itu belum memberikan rincian data akademik yang detil. Fitur ini dibuat untuk melengkapi informasi data akademik tersebut.
+    Pada saat IFStudentPortal pertama kali dibangun, Portal Akademik Mahasiswa saat itu belum memberikan rincian data akademik yang detil. Fitur ini dibuat untuk melengkapi informasi data akademik tersebut.
     \item \textbf{Melihat Ringkasan Data Akademik}
 		\begin{itemize}
 			\item Nama: Melihat ringkasan data akademik
@@ -80,6 +103,12 @@ IFStudentPortal pada awalnya dibuat untuk melengkapi informasi yang belum ada di
 							1 	& Mahasiswa memilih menu ringkasan data akademik. 	&	Sistem meringkas data akademik mahasiswa kemudian menampilkan halaman ringkasan data akademik \\ \hline 
 						\end{tabular} 
 		\end{itemize}
+		\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{Gambar/ringkasan}
+				\caption{Tampilan halaman ringkasan data akademik} 
+				\label{fig:ifstudpor_ringkasan}
+			\end{figure}
 \end{enumerate}
 
 
@@ -89,7 +118,7 @@ IFStudentPortal akan dibangun untuk platform \textit{android}. Dokumentasi \text
 \subsection{Pemenuhan Panduan \textit{Material Design}}
 Panduan aksesibilitas bertujuan memberikan arahan agar aplikasi yang dibangun mudah untuk dipelajari dan digunakan. Meningkatkan aksesibilitas akan meningkatkan kebergunaan aplikasi kepada berbagai kalangan pengguna. Berikut akan dipaparkan langkah-langkah yang dilakukan untuk meningkatkan aksesibilitas aplikasi \textit{android} IFStudentPortal :
 \begin{enumerate} 
-    \item Hierarki : 
+    \item (HR-01) Hierarki : 
     \begin{itemize}
         \item Warna latar belakang akan memiliki kontras yang cukup dengan warna teks.
         \item Ukuran teks akan menyesuaikan dengan ukuran layar sehingga tidak ada teks yang terlalu kecil sehingga sulit dibaca
@@ -97,25 +126,25 @@ Panduan aksesibilitas bertujuan memberikan arahan agar aplikasi yang dibangun mu
         \item Penyampaian informasi akan mengalir terurut dari atas ke bawah
         \item Tombol diletakan di tempat yang mudah dijangkau dengan memberikan area tekan yang besar atau meletakannya di dekat ujung layar.
     \end{itemize}
-    \item Warna dan Kontras : 
+    \item (WK-01) Warna dan Kontras : 
     \begin{itemize}
         \item Warna latar belakang akan memiliki kontras yang cukup dengan warna teks.
         \item Peringatan atau pesan \textit{error} akan berwarna merah disertai dengan keterangan .
     \end{itemize}
-    \item Tata Letak dan Tipografi : 
+    \item (TL-01) Tata Letak dan Tipografi : 
     \begin{itemize}
         \item Menggunakan \textit{layout} yang fleksibel dan responsif.
         \item Menggunakan format sp untuk satuan ukuran \textit{font} agar ukuran teks menyesuaikan dengan ukuran layar.
         \end{itemize}
-    \item Gambar : 
+    \item (GB-01) Gambar : 
     \begin{itemize}
-        \item Menggunakan foto profil mahasiswa untuk melengkapi informasi.
+        \item Melengkapi informasi yang disajikan dengan menampilkan foto profil mahasiswa.
         \end{itemize}
-    \item Notifikasi : 
-    \begin{itemize}
-        \item *belum ditentukan*
-        \end{itemize}
-    \item Izin akses : 
+    % \item (NT-01) Notifikasi : 
+    % \begin{itemize}
+    %     \item *belum ditentukan*
+    %     \end{itemize}
+    \item (IA-01) Izin akses : 
     \begin{itemize}
         \item Menampilkan kotak dialog dan tombol untuk meminta izin pengguna sebelum mengakses dan mengatur kalender.
         \item Hal lain di bagian izin akses \ref{subs:izin} tidak diimplementasikan/digunakan.
@@ -128,39 +157,44 @@ Aplikasi yang berkualitas tentu saja diinginkan oleh pengguna \textit{android}. 
 \begin{enumerate}
     \item Desain visual dan interaksi pengguna : 
     \begin{itemize}
-        \item Aplikasi tidak akan menggunakan ikon yang ambigu sehingga pengguna tidak kebingungan dalam mengartikan fungsi tombol dengan ikon tersebut. 
-        \item Notifikasi akan digunakan untuk memberi tahu pengguna tentang  ...  *belum ditentukan*
+        \item (UX-B1) Aplikasi tidak akan menggunakan ikon yang ambigu sehingga pengguna tidak kebingungan dalam mengartikan fungsi tombol dengan ikon tersebut. 
+        \item (UX-S2) Bagian ini belum memerlukan perhatian khusus %Notifikasi akan digunakan untuk memberi tahu pengguna tentang  ...  *belum ditentukan*
     \end{itemize}
     \item Fungsionalitas : 
     \begin{itemize}
-        \item Aplikasi akan meminta izin akses dari pengguna sebelum menggunakan kalender.
-        \item Aplikasi tidak menggunakan audio sebagai fitur utama.
-        \item Aplikasi tidak menggunakan orientasi \textit{landscape}.
-        \item Aplikasi akan memberhentikan layanan saat pengguna menutup aplikasi sehingga aplikasi tidak aktif saat di belakang layar.
-        \item Aplikasi akan mempertahankan \textit{state login} selama ada aktifitas atau sampai batas waktu yang ditentukan. 
+        \item (FN-P1) Aplikasi akan meminta izin akses dari pengguna sebelum menggunakan kalender.
+        \item (FN-L1) Bagian ini belum memerlukan perhatian khusus.
+        \item (FN-A1) Aplikasi tidak menggunakan audio sebagai fitur utama.
+        \item (FN-U1) Aplikasi tidak menggunakan orientasi \textit{landscape}.
+        \item (FN-S1) Aplikasi akan memberhentikan layanan saat pengguna menutup aplikasi sehingga aplikasi tidak aktif saat di belakang layar.
+        \item (FN-S2) Aplikasi akan mempertahankan \textit{state login} selama ada aktifitas atau sampai batas waktu yang ditentukan. 
     \end{itemize}
     \item Kompaatibilitas, Performa, dan Stabilitas : 
     \begin{itemize}
-        \item Aplikasi akan dibangun dengan \textit{library android} versi terbaru yang sudah stabil untuk meminimalisir kemungkinan aplikasi macet. Aplikasi akan diuji sebelum dirilis untuk memperbaiki \textit{bug} yang ditemukan.
-        \item Aplikasi tidak menggunakan algoritma yang kompleks dan melakukan proses yang berat sehingga tidak perlu waktu lama  untuk memuat aplikasi.
-        \item Aplikasi dibangun dengan SDK terbaru dan diuji di perangkat terbaru dan di perangkat yang populer.
-        \item Grafik yang ditampilkan adalah gambar dengan resolusi tinggi 
+        \item (PS-S1) Aplikasi akan dibangun dengan \textit{library android} versi terbaru yang sudah stabil untuk meminimalisir kemungkinan aplikasi macet. Aplikasi akan diuji sebelum dirilis untuk memperbaiki \textit{bug} yang ditemukan.
+        \item (PS-P1) Aplikasi tidak menggunakan algoritma yang kompleks dan melakukan proses yang berat sehingga tidak perlu waktu lama untuk memuat aplikasi.
+        \item (PS-T1) Aplikasi dibangun dengan SDK terbaru dan diuji di perangkat terbaru dan di perangkat yang populer.
+        \item (PS-M1) Aplikasi tidak memutar video dan audio sebagai fitur utama sehingga tidak memerlukan perhatian khusus.
+        \item (PS-B1) Aplikasi sederhana sehingga bagian ini belum memerlukan perhatian khusus.
+        \item (PS-V1) Grafik yang ditampilkan adalah gambar dengan resolusi tinggi 
     \end{itemize}
     \item Keamanan : 
     \begin{itemize}
-        \item Aplikasi tidak menyimpan data pengguna baik di internal maupun di log.
-        \item Aplikasi tidak berbagi  konten dengan aplikasi lain.
-        \item Aplikasi tidak mengekspor komponen aplikasi dengan aplikasi lain.
-        \item Aplikasi membuka koneksi dengan Student Portal UNPAR yang sudah diamankan dengan SSL.
-        \item Aplikasi dibangun dengan \textit{dependency, library}, dan \textit{SDK} terbaru.
-        \item Aplikasi tidak mengeksekusi kode external secara dinamis.
+        \item (SC-D1) Aplikasi tidak menyimpan data pengguna baik di internal maupun di log.
+        \item (SC-D2) Aplikasi menggunakan data yang valid dan aman dari Portal Akademik Mahasiswa.
+        \item (SC-P1) Aplikasi tidak mengekspor komponen aplikasi dengan aplikasi lain.
+        \item (SC-P2) Aplikasi tidak berbagi konten dengan aplikasi lain.
+        \item (SC-N1) Aplikasi membuka koneksi dengan Portal Akademik Mahasiswa yang sudah diamankan dengan SSL.
+        \item (SC-N2) Bagian ini belum memerlukan perhatian khusus.
+        \item (SC-U1) Aplikasi dibangun dengan \textit{dependency, library}, dan \textit{SDK} terbaru.
+        \item (SC-E1) Aplikasi tidak mengeksekusi kode external secara dinamis.
+        \item (SC-C1) Aplikasi tidak perlu mengenkripsi apapun.
     \end{itemize}
     \item \textit{Google Play} : 
     \begin{itemize}
-        \item Aplikasi tidak mengandung materi yang tidak pantas dan tidak menggunakan hak kekayaan intelektual atau merk orang lain.
-        \item Aplikasi akan dibangun dengan mengikuti panduan yang sudah diuraikan sebelum bagian ini.
-        \item Aplikasi tidak mengekspor komponen aplikasi dengan aplikasi lain.
-        \item Pengembang akan memperbaiki \textit{bug} yang ditemukan.
+        \item (GP-P1) Aplikasi tidak mengandung materi yang tidak pantas dan tidak menggunakan hak kekayaan intelektual atau merk orang lain.
+        \item (GP-D1) Aplikasi akan dibangun dengan mengikuti panduan yang sudah diuraikan sebelum bagian ini.
+        \item (GP-X1) Pengembang akan memperbaiki \textit{bug} yang ditemukan.
     \end{itemize}
 \end{enumerate}
 
@@ -170,12 +204,12 @@ Sebelum dan selama proses pengembangan aplikasi \textit{android} IFStudentPortal
     \item Perawatan situs IFStudentPortal\\
     IFStudentPortal beberapa kali mengalami gangguan sehingga tidak bisa digunakan sebagaimana mestinya, sehingga dilakukan perbaikan-perbaikan yang diperlukan. Perubahan yang dilakukan adalah sebagai berikut :
     \begin{itemize}
-        \item Memperbaiki \textit{bug} alamat foto profil dari Student Portal UNPAR\footnote{Kode dapat dilihat di \url{https://github.com/ftisunpar/IFStudentPortal/commit/2534764}}.
-        \item Memperbaiki \textit{bug} mengambil kode semester dari Student Portal UNPAR dengan memindahkan halaman sumber kode semester dari halaman frs ke halaman nilai\footnote{Kode dapat dilihat di \url{https://github.com/ftisunpar/IFStudentPortal/commit/4775b17}}.
+        \item Memperbaiki \textit{bug} alamat foto profil dari Portal Akademik Mahasiswa\footnote{Kode dapat dilihat di \url{https://github.com/ftisunpar/IFStudentPortal/commit/2534764}}.
+        \item Memperbaiki \textit{bug} mengambil kode semester dari Portal Akademik Mahasiswa dengan memindahkan halaman sumber kode semester dari halaman frs ke halaman nilai\footnote{Kode dapat dilihat di \url{https://github.com/ftisunpar/IFStudentPortal/commit/4775b17}}.
         \item Merubah penggunaan SIA Models dari \textit{submodule} ke \textit{Maven}\footnote{Kode dapat dilihat di \url{https://github.com/ftisunpar/IFStudentPortal/commit/d88bba}}.
     \end{itemize}
     \item Perawatan SIA Models\\
-    SIA Models versi 3.1.0 belum cocok untuk digunakan di platform \textit{android} sehingga perlu sedikit modifikasi agar bisa digunakan untuk pembangunan \textit{android} IFStudentPortal. Perubahan yang dilakukan adalah sebagai berikut :
+    SIA Models versi v3.1.0 belum cocok untuk digunakan di platform \textit{android} sehingga perlu sedikit modifikasi agar bisa digunakan untuk pembangunan \textit{android} IFStudentPortal. Perubahan yang dilakukan adalah sebagai berikut :
     \begin{itemize}
         \item Merubah nilai kembalian dari \textit{method getPhotoImage} menjadi \textit{byte}\footnote{Kode dapat dilihat di \url{https:www.github.com/pascalalfadian/siamodels/commit/0df064f}.}.
     \end{itemize}
@@ -211,7 +245,7 @@ Berdasarkan hasil analisis kebutuhan pada subbab \ref{kebutuhan}, dari x fitur y
 
 
 
-% Student Portal UNPAR adalah situs yang diperuntukan bagi mahasiswa UNPAR untuk mengakses informasi yang berhubungan dengan studi dan mahasiswa pemilik akun\cite{BTI:2012}. Mahasiswa dapat mengakses Student Portal UNPAR melalui URL \url{https://studentportal.unpar.ac.id/}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
+% Portal Akademik Mahasiswa adalah situs yang diperuntukan bagi mahasiswa UNPAR untuk mengakses informasi yang berhubungan dengan studi dan mahasiswa pemilik akun\cite{BTI:2012}. Mahasiswa dapat mengakses Portal Akademik Mahasiswa melalui URL \url{https://studentportal.unpar.ac.id/}. Untuk mengakses Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan akun email \textit{student}. 
 
 % \subsection{Analisis Kebutuhan \textit{Android} IFStudentPortal}
 % \label{kebutuhan}
@@ -228,14 +262,14 @@ Berdasarkan hasil analisis kebutuhan pada subbab \ref{kebutuhan}, dari x fitur y
 
 % Fitur-fitur baru yang akan diimplementasikan akan memenuhi kriteria berikut :
 % \begin{itemize}
-%     \item Data yang diperlukan tersedia di Student Portal UNPAR.
-%     \item Data hasil olahan tidak tersedia  di Student Portal UNPAR.
+%     \item Data yang diperlukan tersedia di Portal Akademik Mahasiswa.
+%     \item Data hasil olahan tidak tersedia  di Portal Akademik Mahasiswa.
 %     \item Fitur mendukung fungsi Student Portal sebagai sumber informasi akademik.
 %     \item Bisa diintegrasikan dengan fitur android.
 % \end{itemize}
 
 % Hasil analisis fitur-fitur yang diinginkan berdasarkan kriteria di atas dan batas waktu pembangunan aplikasi dapat dilihat pada Tabel \ref{tab:3_hasil_fitur}.
-% \begin{table}[H]
+% \begin{table}(H)
 % 	\centering
 % 		\caption{Tabel Hasil Analisis Kebutuhan Informatika Student Portal}
 %     \begin{tabular}{|p{4.5cm}|p{2.5cm}|p{8cm}|}
@@ -244,17 +278,17 @@ Berdasarkan hasil analisis kebutuhan pada subbab \ref{kebutuhan}, dari x fitur y
 % 		\hline
 % 		Simulasi FRS sederhana                      & Dibuat (mungkin)       & Data dapat diambil dari Portal Akademik Mahasiswa dan aturan prasyarat mata kuliah Program Studi Teknik Informatika sudah tersedia di SIA Models                   \\
 % 		\hline
-%     Tempat melihat pengumuman yang bisa di urutkan dan rapi.                               & Dibuat (mungkin)      & Data dapat diambil dari student portal UNPAR                       \\
+%     Tempat melihat pengumuman yang bisa di urutkan dan rapi.                               & Dibuat (mungkin)      & Data dapat diambil dari Portal Akademik Mahasiswa                       \\
 % 		\hline
-%     Tempat melihat jadwal akademik di selain jadwal kuliah mahasiswa (jam kerja Tata Usaha, jadwal tes TOEFL).    & Tidak Dibuat       &  Data tidak tersedia di student portal UNPAR \\
+%     Tempat melihat jadwal akademik di selain jadwal kuliah mahasiswa (jam kerja Tata Usaha, jadwal tes TOEFL).    & Tidak Dibuat       &  Data tidak tersedia di Portal Akademik Mahasiswa \\
 % 		\hline
-%     Jadwal kuliah yang terintegrasi dengan kalender sistem                       & Dibuat       & Data tersedia di student portal UNPAR dan terintegrasi dengan fitur android                                                     \\
+%     Jadwal kuliah yang terintegrasi dengan kalender sistem                       & Dibuat       & Data tersedia di Portal Akademik Mahasiswa dan terintegrasi dengan fitur android                                                     \\
 % 		\hline
 %     Rincian mata kuliah                               & Tidak dibuat & Data tidak bisa diperoleh dari Portal Akademik Mahasiwa                                               \\
 % 		\hline
-%     Notifikasi yang berisi informasi seputar perkuliahan                                    & Dibuat & Data tersedia di student portal UNPAR dan terintegrasi dengan fitur android                                                                        \\
+%     Notifikasi yang berisi informasi seputar perkuliahan                                    & Dibuat & Data tersedia di Portal Akademik Mahasiswa dan terintegrasi dengan fitur android                                                                        \\
 % 	    \hline
-% 	    Ringkasan data akademik dan syarat kelulusan                                  & Dibuat & Data tersedia di student portal UNPAR                                                                       \\
+% 	    Ringkasan data akademik dan syarat kelulusan                                  & Dibuat & Data tersedia di Portal Akademik Mahasiswa                                                                       \\
 % 	    \hline
 		
 % 		\end{tabular}

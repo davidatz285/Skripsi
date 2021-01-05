@@ -2,16 +2,24 @@
 \chapter{Landasan Teori}
 \label{chap:teori}
 
-\section{Latar Belakang}
-\label{sec:latar} 
-Pada bab ini akan dijelaskan dasar teori mengenai jsoup, \textit{android design}, arsitektur \textit{MVP(Model-View-Presenter},  
+Pada bab ini akan dijelaskan dasar teori mengenai \textit{library} jsoup yang meliputi kelas-kelas Jsoup, Connection, Response, Document, Elements, dan Element. Akan dibahas pula Portal Akademik Mahasiswa, IFStudentPortal, SIA Models, dan panduan \textit{Android Design} yang meliputi Panduan Aksesibilitas dan panduan \textit{Material Design}.
+
+\section{Portal Akademik Mahasiswa}
+Portal Akademik Mahasiswa adalah sistem informasi berbasis \textit{web} yang diperuntukan bagi mahasiswa untuk memperoleh informasi kegiatan akademik \cite{studentportalunpar}. Portal Akademik Mahasiswa dapat di akses melalui URL \url{https://www.studentportal.unpar.ac.id/}\footnote{Portal Akademik Mahasiswa yang aktif saat skripsi ini ditulis adalah Portal Akademik Mahasiswa versi 2018}. Mahasiswa harus \textit{login} dengan email mahasiswa agar bisa mengakses dan menggunakan fitur-fitur yang tersedia.     
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.3]{DokumenSkripsi/Gambar/stupor.PNG}
+	\caption{Tampilan halaman awal Portal Akademik Mahasiswa} 
+	\label{fig:studpor_home}
+\end{figure}
+			
 
 \section{\textit{Jsoup}}
 \label{sec:jsoup}
 Jsoup adalah \textit{library} Java yang digunakan untuk mengambil data berupa HTML dari sebuah situs. Data HTML tersebut bisa digunakan untuk memperoleh informasi yang diperlukan dari suatu situs\cite{jsoup}. \textit{Library jsoup} ini bisa digunakan saat sebuah situs tidak menyediakan API untuk memberikan datanya. Kelas-kelas yang digunakan dari \textit{library} ini akan dijelaskan di sub bab berikut.
 
 \subsection{Jsoup}
-
 Kelas ini merupakan kelas utama dalam \textit{library} jsoup. Seluruh \textit{method} dalam kelas ini adalah \texttt{static} \textit{method} sehingga kelas ini tidak perlu dikonstruksi terlebih dahulu sebelum menggunakan \textit{method} dari kelas ini. Salah satu \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
 \begin{itemize}
 	\item \textbf{public static Connection connect(String url)} \\
@@ -24,7 +32,6 @@ Kelas ini merupakan kelas utama dalam \textit{library} jsoup. Seluruh \textit{me
 \end{itemize}
 
 \subsection{Connection}
-
 Kelas ini merupakan \texttt{interface} yang berguna untuk pengambilan data dari situs web. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
 
 \begin{itemize}
@@ -130,7 +137,7 @@ Kelas ini merepresentasikan kumpulan elemen HTML. Beberapa \textit{method} yang 
 Kelas ini merepresentasikan sebuah elemen HTML yang berisikan \textit{tag}, atribut, dan anak elemen. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
 \begin{itemize}
 	\item \textbf{public Element child(int index)} \\
-		Berfungsi untuk mendapatkan anak elemen berdasarkan nomor indeks. \\
+		Berfungsi untuk mendapatkan anak elemen berdasarkan nomor index. \\
 		\textbf{Parameter:} 
 		\begin{itemize}
 			\item \textbf{index} : nomor index.
@@ -150,6 +157,79 @@ Kelas ini merepresentasikan sebuah elemen HTML yang berisikan \textit{tag}, atri
 		\textbf{Kembalian:} teks dalam \textit{string}.	
 \end{itemize}
 
+\section{SIA Models}
+SIA Models merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018 \footnote{SIA Models versi v5.0.0 yang digunakan saat penulisan skripsi ini}. Kelas-kelas yang digunakan dari \textit{library} ini akan dijelaskan di sub bab berikut.
+
+\subsection{Mahasiswa}
+Kelas ini merepresentasikan seorang mahasiswa Universitas Katolik Parahyangan. Kelas ini memiliki atribut antara lain nama, npm, tanggal lahir, jenis kelamin, riwayat nilai, foto, dan jadwal kuliah. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item \textbf{public byte[] getPhotoImage() throws IOException, MalformedURLException} \\
+		Berfungsi untuk mendapatkan foto profil mahasiswa dalam bentuk \textit{byte array}. \\
+		\textbf{Kembalian:} \textit{byte array} foto profil mahasiswa.	
+		
+		\item \textbf{public double calculateIPK() throws ArrayIndexOutOfBoundsException} \\
+		Berfungsi untuk menghitung nilai index Prestasi Kumulatif mahasiswa. \\
+		\textbf{Kembalian:} nilai IPK mahasiswa.	
+		
+		\item \textbf{public double calculateIPS(TahunSemester tahunSemester) throws ArrayIndexOutOfBoundsException} \\
+		Berfungsi untuk menghitung nilai index Prestasi Semester mahasiswa. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{tahunSemester} : tahun dan semester yang ingin dihitung IPS-nya.
+		\end{itemize}
+		\textbf{Kembalian:} nilai IPK mahasiswa pada tahun dan semester yang ditentukan.	
+		
+		\item \textbf{public int calculateSKSTempuh(boolean lulusSaja) throws ArrayIndexOutOfBoundsException} \\
+		Berfungsi untuk Menghitung jumlah SKS tempuh mahasiswa saat ini. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{lulusSaja} : set \textit{true} untuk menghitung hanya SKS yang lulus.
+		\end{itemize}
+		\textbf{Kembalian:} jumlah SKS yang sudah ditempuh mahasiswa.	
+\end{itemize}
+
+\subsection{Nilai}
+Kelas ini merepresentasikan nilai sebuah mata kuliah mahasiswa Universitas Katolik Parahyangan. Kelas ini memiliki atribut antara lain mata kuliah, kelas, nilai UTS, nilai UAS, dan nilai akhir. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item \textbf{public Double getAngkaAkhir()} \\
+		Berfungsi untuk mendapatkan angka akhir dari index nilai. \\
+		\textbf{Kembalian:} angka akhir dari nilai.	
+\end{itemize}
+
+\subsection{Mata Kuliah}
+Kelas ini merepresentasikan sebuah mata kuliah. Kelas ini memiliki atribut antara lain nama, kode, dan sks.
+
+\subsection{Kelulusan}
+Kelas ini merepresentasikan kelulusan mahasiswa Universitas Katolik Parahyangan. Kelas ini memiliki atribut daftar mata kuliah wajib lulus sebagai syarat kelulusan. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+	\item \textbf{public boolean checkPrasyarat(Mahasiswa mahasiswa, List<String> reasonsContainer)} \\
+		Berfungsi untuk memeriksa apakah mahasiswa sudah memenuhi syarat kelulusan. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{mahasiswa} : mahasiswa yang ingin diperiksa prasyarat kelulusannya.
+			\item \textbf{reasonsContainer} : daftar alasan-alasan yang membuat tidak lulus.
+		\end{itemize}
+		\textbf{Kembalian:} nilai \textit{boolean true} atau \textit{false} yang merepresentasikan status kelulusan prasyarat mahasiswa.	
+	\item \textbf{public Map<String, String> getMkEkevalensi()}\\
+	    Berfungsi menambahkan data mata kuliah kurikulum 2013 yang ekivalen dengan mata kuliah kurikulum 2018. \\
+	    \textbf{Kembalian:} daftar mata kuliah yang ekivalen dengan kurikulum 2018 dalam bentuk \textit{map.}
+\end{itemize}
+
+\subsection{Tahun Semester}
+Kelas ini merepresentasikan tahun dan semester masa studi mahasiswa di Universitas Katolik Parahyangan. Kelas ini memiliki atribut kode tahun semester yang memiliki 3 dijit dimana 2 dijit pertama adalah tahun dan dijit terakhir adalah kode semester (1 untuk ganjil, 2 untuk genap, 4 untuk pendek). Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
+
+\begin{itemize}
+    \item \textbf{private static void validateKodeSemester(String kodeTahunSemester) throws IllegalArgumentException} \\
+		Berfungsi untuk memvalidasi kode tahun semester. \\
+		\textbf{Parameter:} 
+		\begin{itemize}
+			\item \textbf{kodeTahunSemester} : kode tahun semester yang akan divalidasi.
+		\end{itemize}
+		\textbf{Eksepsi:} kode semester tidak valid.
+\end{itemize}
 
 \section{\textit{Android Design}}
 \label{sec:android design}
@@ -161,17 +241,17 @@ Dalam mengembangkan aplikasi \textit{android}, ada pedoman desain yang diberikan
 \subsubsection{Panduan Aksesibilitas}
 Aksesibilitas dapat diartikan sebagai tingkat kemudahan saat pengguna mempelajari dan menggunakan tampilan antarmuka aplikasi. Meningkatkan aksesibilitas akan meningkatkan \textit{usability} atau tingkat kebergunaan aplikasi kepada berbagai kalangan pengguna \cite{materialdesign}. Hal penting yang harus diperhatikan agar aplikasi memiliki aksesibilitas yang baik :
 \begin{itemize}
-    \item Hierarki : Elemen-elemen harus terlihat dengan jelas baik dari ukuran, kontras, dan infromasi yang terkandung di dalamnya. Elemen-elemen juga harus terurut berdasarkan kepentingan dan elemen dengan fungsi tertentu diletakan di tempat yang mudah dijangkau.
-    \item Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lamaa, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
-    \item Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.
-    \item Gambar : Gunakan gambar untuk memperjelas informasi yang disajikan. Gambar logo boleh tidak mematuhi panduan warna, kontras, dan ukuran teks, namun sebaiknya tetap memiliki fungsi (misalnya logo sebagai tombol ke halaman utama).  
+    \item (HR-01) Hierarki : Elemen-elemen harus terlihat dengan jelas baik dari ukuran, kontras, dan infromasi yang terkandung di dalamnya. Elemen-elemen juga harus terurut berdasarkan kepentingan dan elemen dengan fungsi tertentu diletakan di tempat yang mudah dijangkau.
+    \item (WK-01) Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lamaa, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
+    \item (TL-01) Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.
+    \item (GB-01) Gambar : Gunakan gambar untuk memperjelas informasi yang disajikan. Gambar logo boleh tidak mematuhi panduan warna, kontras, dan ukuran teks, namun sebaiknya tetap memiliki fungsi (misalnya logo sebagai tombol ke halaman utama).  
 \end{itemize}
 
 \subsubsection{Panduan Platform}
 Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan untuk setiap platform. Platform yang dimaksud pada bagian ini adalah bagian-bagian dari komponen aplikasi android. Platform yang dimaksud adalah :
 \begin{itemize}
-    \item Notifikasi : notifikasi digunakan untuk memberi tahu komunikasi dari pengguna lain dan mengingatkan hal yang perlu dilakukan. Notifikasi bisa ditampilkan di halaman terkunci, di \textit{status bar}, dengan kedipan lampu LED, dan dengan suara dan getaran. Sebaiknya notifikasi tidak digunakan untuk promosi, meminta rating aplikasi, dan memberi tahu proses yang tidak berhubungan dengan pengguna. Pada saat layar terkunci sebaiknya notifikasi tidak menampilkan informasi yang sensitif. Notifikasi harus punya bagian \textit{header}, bagian konten, dan bagian aksi. 
-    \item Izin Akses (\textit{permission}) : Secara normal, aplikasi punya izin akses ke beberapa hal tanpa perlu memintanya kepada pengguna. Namun beberapa hal berikut membutuhkan konfirmasi dari pengguna agar aplikasi memiliki izin akses :
+    \item (NT-01) Notifikasi : notifikasi digunakan untuk memberi tahu komunikasi dari pengguna lain dan mengingatkan hal yang perlu dilakukan. Notifikasi bisa ditampilkan di halaman terkunci, di \textit{status bar}, dengan kedipan lampu LED, dan dengan suara dan getaran. Sebaiknya notifikasi tidak digunakan untuk promosi, meminta rating aplikasi, dan memberi tahu proses yang tidak berhubungan dengan pengguna. Pada saat layar terkunci sebaiknya notifikasi tidak menampilkan informasi yang sensitif. Notifikasi harus punya bagian \textit{header}, bagian konten, dan bagian aksi. 
+    \item (IA-01) Izin Akses (\textit{permission}) : Secara normal, aplikasi punya izin akses ke beberapa hal tanpa perlu memintanya kepada pengguna. Namun beberapa hal berikut membutuhkan konfirmasi dari pengguna agar aplikasi memiliki izin akses :
     \begin{itemize} \label{subs:izin}
         \item Kalender : Mengakses dan mengatur kalender.
         \item Kamera : Mengambil foto dan merekam video.
@@ -199,53 +279,52 @@ Untuk keterangan lebih lanjut dari setiap poin diatas akan dijelaskan di bagian 
 \subsubsection{Desain Visual dan Interaksi Pengguna}
 Kriteria ini bertujuan memastikan aplikasi akan memiliki desain visual dan pola interaksi standar agar pengalaman pengguna konsisten dan intuitif\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
 \begin{itemize}
-    \item Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. 
-    \item Aplikasi hanya menggunakan notifikasi untuk memberitahu perubahan yang terjadi dengan konteks yang berkaitan dengan pengguna pribadi dan untuk memberi tahu informasi/kontrol terhadap kejadian yang sedang berlangsung.
+    \item (UX-B1) Aplikasi tidak boleh merubah definisi ikon sistem dengan fungsinya, jika aplikasi menyediakan ikon yang disesuaikan, maka tampilannya harus mirip ikon standar dan memicu perilaku sesuai fungsi standarnya. 
+    \item (UX-S2) Aplikasi hanya menggunakan notifikasi untuk memberitahu perubahan yang terjadi dengan konteks yang berkaitan dengan pengguna pribadi dan untuk memberi tahu informasi/kontrol terhadap kejadian yang sedang berlangsung.
 \end{itemize}
 
 \subsubsection{Fungsionalitas}
 Kriteria ini bertujuan memastikan aplikasi memberikan perilaku fungsional yang diharapkan, dengan tingkat izin yang sesuai \cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
 \begin{itemize}
-    \item Aplikasi hanya meminta izin untuk mendukung fungsionalitas aplikasi tersebut. Aplikasi tidak boleh meminta izin untuk mengakses data sensitif atau menggunakan layanan yang bisa membebani pengguna kecuali jika fitur inti aplikasi memerlukan izin tersebut.
-    \item Aplikasi harus berfungsi normal jika dipasang di kartu \textit{SD}.
-    \item Audio tidak boleh diputar di layar utama, saat layar mati, dibalik layar, atau saat layar dikunci kecuali memutar audio adalah fitur utama.
-    \item Jika memungkinkan aplikasi mendukung orientasi \textit{landscape} dan \textit{portrait}, dan menggunakan seluruh layar untuk kedua orientasi.
-    \item Aplikasi tidak boleh membiarkan layanan tetap aktif saat di latar belakang layar, kecuali jika diperlukan fitur utama.
-    \item Aplikasi mempertahankan status pengguna atau aplikasi saat meninggalkan latar depan dan mencegah kehilangan data tanpa sengaja akibat navigasi mundur dan perubahan status lainnya. 
+    \item (FN-P1) Aplikasi hanya meminta izin untuk mendukung fungsionalitas aplikasi tersebut. Aplikasi tidak boleh meminta izin untuk mengakses data sensitif atau menggunakan layanan yang bisa membebani pengguna kecuali jika fitur inti aplikasi memerlukan izin tersebut.
+    \item (FN-L1) Aplikasi harus berfungsi normal jika dipasang di kartu \textit{SD}.
+    \item (FN-A1) Audio tidak boleh diputar di layar utama, saat layar mati, dibalik layar, atau saat layar dikunci kecuali memutar audio adalah fitur utama.
+    \item (FN-U1) Jika memungkinkan aplikasi mendukung orientasi \textit{landscape} dan \textit{portrait}, dan menggunakan seluruh layar untuk kedua orientasi.
+    \item (FN-S1) Aplikasi tidak boleh membiarkan layanan tetap aktif saat di latar belakang layar, kecuali jika diperlukan fitur utama.
+    \item (FN-S2) Aplikasi mempertahankan status pengguna atau aplikasi saat meninggalkan latar depan dan mencegah kehilangan data tanpa sengaja akibat navigasi mundur dan perubahan status lainnya. 
 \end{itemize}
 
 \subsubsection{Kompatibilitas, Performa, dan Stabilitas}
 Kriteria ini bertujuan memastikan aplikasi memberikan kompatibilitas, performa, stabilitas, dan daya respons yang diharapkan oleh pengguna \cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
 \begin{itemize}
-    \item Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan.
-    \item Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat.
-    \item Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala.
-    \item Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya.
-    \item Aplikasi menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian.
-    \item Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan. 
-    \item Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}).  
+    \item (PS-S1) Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan.
+    \item (PS-P1) Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat.
+    \item (PS-T1) Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala.
+    \item (PS-M1) Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya.
+    \item (PS-V1) Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan dan menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian.
+    \item (PS-B1) Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}).  
 \end{itemize}   
 
 \subsubsection{Keamanan}
 Kriteria ini bertujuan memastikan aplikasi menangani dan mengamankan data pengguna dan informasi pribadi dengan benar\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut :
 \begin{itemize}
-    \item Aplikasi harus menyimpan data pribadi di penyimpanan internal aplikasi dan tidak boleh mencatat data pribadi di log.
-    \item Aplikasi harus memverifikasi data eksternal sebelum digunakan.
-    \item Semua komponen aplikasi yang berbagi konten dengan aplikasi lain menetapkan (dan memberlakukan) izin yang sesuai, termasuk aktivitas, layanan, penerima siaran, dan khususnya penyedia konten.
-    \item Aplikasi hanya boleh mengekspor komponen aplikasi yang membagikan data dengan aplikasi lain, atau komponen yang harus dipanggil oleh aplikasi lain.
-    \item Aplikasi harus menyatakan konfigurasi keamanan jaringan dan semua lalu lintas jaringan dilakukan melalui \textit{SSL}.
-    \item Jika aplikasi menggunakan layanan \textit{Google Play}, inisialisasi keamanan dilakukan saat aplikasi dimulai.
-    \item Aplikasi harus menggunakan dependensi, \textit{library} dan \textit{SDK} terbaru.
-    \item Aplikasi tidak boleh menjalankan kode dari luar aplikasi secara dinamis.
-    \item Aplikasi harus menggunakan algoritma kriptografi kuat yang disediakan oleh platform.
+    \item (SC-D1) Aplikasi harus menyimpan data pribadi di penyimpanan internal aplikasi dan tidak boleh mencatat data pribadi di log.
+    \item (SC-D2) Aplikasi harus memverifikasi data eksternal sebelum digunakan.
+    \item (SC-P1) Aplikasi hanya boleh mengekspor komponen aplikasi yang membagikan data dengan aplikasi lain, atau komponen yang harus dipanggil oleh aplikasi lain.
+    \item (SC-P2) Semua komponen aplikasi yang berbagi konten dengan aplikasi lain menetapkan (dan memberlakukan) izin yang sesuai, termasuk aktivitas, layanan, penerima siaran, dan khususnya penyedia konten.
+    \item (SC-N1) Aplikasi harus menyatakan konfigurasi keamanan jaringan dan semua lalu lintas jaringan dilakukan melalui \textit{SSL}.
+    \item (SC-N2) Jika aplikasi menggunakan layanan \textit{Google Play}, inisialisasi keamanan dilakukan saat aplikasi dimulai.
+    \item (SC-U1) Aplikasi harus menggunakan dependensi, \textit{library} dan \textit{SDK} terbaru.
+    \item (SC-E1) Aplikasi tidak boleh menjalankan kode dari luar aplikasi secara dinamis.
+    \item (SC-C1) Aplikasi harus menggunakan algoritma kriptografi kuat yang disediakan oleh platform.
 \end{itemize}       
 
 \subsubsection{\textit{Google Play}}
 Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi standar dan syarat untuk dipublikasikan di layanan \textit{Google Play}\cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut :
 \begin{itemize}
-    \item Aplikasi mematuhi Kebijakan Materi Pengembang \textit{Google Play} (tidak menawarkan materi tidak pantas, tidak menggunakan hak kekayaan intelektual atau merk orang lain, dll).
-    \item Aplikasi sudah memenuhi kriteria yang sudah diuraikan sebelum bagian ini.
-    \item Pengembang aplikasi harus mengatasi \textit{bug} yang disampaikan di halaman ulasan di layanan \textit{Google Play} jika \textit{bug} tersebut ditemukan di banyak perangkat dan berulang kali atau ditemukan di perangkat terbaru atau perangkat paling populer.    
+    \item (GP-P1) Aplikasi mematuhi Kebijakan Materi Pengembang \textit{Google Play} (tidak menawarkan materi tidak pantas, tidak menggunakan hak kekayaan intelektual atau merk orang lain, dll).
+    \item (GP-D1) Aplikasi sudah memenuhi kriteria yang sudah diuraikan sebelum bagian ini.
+    \item (GP-X1) Pengembang aplikasi harus mengatasi \textit{bug} yang disampaikan di halaman ulasan di layanan \textit{Google Play} jika \textit{bug} tersebut ditemukan di banyak perangkat dan berulang kali atau ditemukan di perangkat terbaru atau perangkat paling populer.    
 \end{itemize}  
 
 
@@ -256,7 +335,7 @@ Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi sta
 % Perhatikan bawa berbeda dengan penempatan judul gambar gambar, keterangan tabel harus diletakkan di atas tabel!!
 % Lihat Tabel~\ref{tab:contoh1} berikut ini:
 
-% \begin{table}[H] %atau h saja untuk "kira kira di sini"
+% \begin{table}(H) %atau h saja untuk "kira kira di sini"
 % 	\centering 
 % 	\caption{Tabel contoh}
 % 	\label{tab:contoh1}
@@ -275,8 +354,8 @@ Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi sta
 % 	\end{tabular} 
 % \end{table}
 % Tabel~\ref{tab:cthwarna1} dan Tabel~\ref{tab:cthwarna2} berikut ini adalah tabel dengan sel yang berwarna dan ada dua tabel yang bersebelahan. 
-% \begin{table}[H]
-% 	\begin{minipage}[c]{0.49\linewidth}
+% \begin{table}(H)
+% 	\begin{minipage}(c){0.49\linewidth}
 % 		\centering
 % 		\caption{Tabel bewarna(1)}
 % 		\label{tab:cthwarna1}
@@ -294,7 +373,7 @@ Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi sta
 
 % 		\end{tabular}
 % 	\end{minipage}
-% 	\begin{minipage}[c]{0.49\linewidth}
+% 	\begin{minipage}(c){0.49\linewidth}
 		
 % 		\centering 
 % 		\caption{Tabel bewarna(2)}
@@ -342,10 +421,10 @@ Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi sta
 % Beberapa hal yang harus diperhatikan pada saat menempatkan gambar:
 % \begin{itemize}
 % 	\item Setiap gambar {\bf harus} diacu di dalam teks (gunakan {\it field} {\sc label})
-% 	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $[$ dan $]$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
+% 	\item {\it Field} {\sc caption} digunakan untuk teks pengantar pada gambar. Terdapat dua bagian yaitu yang ada di antara tanda $($ dan $)$ dan yang ada di antara tanda $\{$ dan $\}$. Yang pertama akan muncul di Daftar Gambar, sedangkan yang kedua akan muncul di teks pengantar gambar. Untuk skripsi ini, samakan isi keduanya.
 % 	\item Jenis file yang dapat digunakan sebagai gambar cukup banyak, tetapi yang paling populer adalah tipe {\sc png} (lihat Gambar~\ref{fig:ularpng}), tipe {\sc jpg} (Gambar~\ref{fig:ularjpg}) dan tipe {\sc pdf} (Gambar~\ref{fig:ularpdf})
 % 	\item Besarnya gambar dapat diatur dengan {\it field} {\sc scale}.
-% 	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $[$ dan $]$ setelah deklarasi gambar.
+% 	\item Penempatan gambar diatur menggunakan {\it placement specifier} (di antara tanda  $($ dan $)$ setelah deklarasi gambar.
 % 	Yang umum digunakan adalah {\bf H} untuk menempatkan gambar {\bf sesuai} penempatannya di file .tex atau  {\bf h} yang berarti "kira-kira" di sini. \\
 % 	Jika tidak menggunakan {\it placement specifier}, \LaTeX{} akan menempatkan gambar secara otomatis untuk menghindari bagian kosong pada dokumen anda.
 % 	Walaupun cara ini sangat mudah, hindarkan terjadinya penempatan dua gambar secara berurutan. 	
@@ -359,24 +438,24 @@ Kriteria ini bertujuan memastikan aplikasi yang dibuat sudah layak, memenuhi sta
 % \dtext{17-18}
 % \begin{figure} 
 % 	\centering  
-% 	\includegraphics[scale=1]{ular-png}  
-% 	\caption[Gambar {\it Serpentes} dalam format png]{Gambar {\it Serpentes} dalam format png} 
+% 	\includegraphics(scale=1){ular-png}  
+% 	\caption(Gambar {\it Serpentes} dalam format png){Gambar {\it Serpentes} dalam format png} 
 % 	\label{fig:ularpng} 
 % \end{figure} 
 
 % \dtext{19-20}
-% \begin{figure}[H]
+% \begin{figure}(H)
 % 	\centering  
-% 	\includegraphics[scale=0.5]{ular-jpg}  
-% 	\caption[Ular kecil]{Ular kecil} 
+% 	\includegraphics(scale=0.5){ular-jpg}  
+% 	\caption(Ular kecil){Ular kecil} 
 % 	\label{fig:ularjpg} 
 % \end{figure} 
 % \dtext{21-22}
 
-% \begin{figure}[ht] 
+% \begin{figure}(ht) 
 % 	\centering  
-% 	\includegraphics[scale=1]{ular-pdf}  
-% 	\caption[ {\it Serpentes} betina]{ {\it Serpentes} jantan} 
+% 	\includegraphics(scale=1){ular-pdf}  
+% 	\caption( {\it Serpentes} betina){ {\it Serpentes} jantan} 
 % 	\label{fig:ularpdf} 
 % \end{figure} 
  
