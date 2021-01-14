@@ -16,12 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
-
-\newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
-\renewcommand{\baselinestretch}{1}
-\setlength{\parindent}{0 pt}
-\setlength{\parskip}{6 pt}
+\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Genap 2015/2016}}}
 
 \onehalfspacing
  
@@ -30,12 +25,22 @@
 \title{\@judultopik}
 \author{\nama \textendash \@npm} 
 
-%tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+%ISILAH DATA BERIKUT INI:
+\newcommand{\nama}{David Christopher Sentosa}
+\newcommand{\@npm}{2017730015}
+\newcommand{\tanggal}{14/01/2021} %Tanggal pembuatan dokumen
+\newcommand{\@judultopik}{Pembangunan Aplikasi \textit{Android} IFStudentPortal} % Judul/topik anda
+\newcommand{\kodetopik}{PAN4904}
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\pembA}{Pascal Alfadian Nugroho}
+\newcommand{\pembB}{-}
+\newcommand{\semesterPertama}{49 - Ganjil 20/21} % semester pertama kali topik diambil, angka 1 dimulai dari sem Ganjil 96/97
+\newcommand{\lamaSkripsi}{1} % Jumlah semester untuk mengerjakan skripsi s.d. dokumen ini dibuat
+\newcommand{\kulPertama}{Skripsi 1} % Kuliah dimana topik ini diambil pertama kali
+\newcommand{\tipePR}{B} % tipe progress report :
+% A : dokumen pendukung untuk pengambilan ke-2 di Skripsi 1
+% B : dokumen untuk reviewer pada presentasi dan review Skripsi 1
+% C : dokumen pendukung untuk pengambilan ke-2 di Skripsi 2
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -43,71 +48,105 @@
 
 \pagenumbering{arabic}
 
-\section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
-
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
-
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
-
-Dst, dst, dst, \ldots\ldots\ldots 
-
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
-
-Dst, dst, dst, \ldots\ldots\ldots 
-
-\section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
-
-\section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
-
-\section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
-
-Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
-\begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
+\section{Data Skripsi} %TIDAK PERLU MENGUBAH BAGIAN INI !!!
+Pembimbing utama/tunggal: {\bf \pembA}\\
+Pembimbing pendamping: {\bf \pembB}\\
+Kode Topik : {\bf \kodetopik}\\
+Topik ini sudah dikerjakan selama : {\bf \lamaSkripsi} semester\\
+Pengambilan pertama kali topik ini pada : Semester {\bf \semesterPertama} \\
+Pengambilan pertama kali topik ini di kuliah : {\bf \kulPertama} \\
+Tipe Laporan : {\bf \tipePR} -
+\ifdefstring{\tipePR}{A}{
+			Dokumen pendukung untuk {\BF pengambilan ke-2 di Skripsi 1} }
+		{
+		\ifdefstring{\tipePR}{B} {
+				Dokumen untuk reviewer pada presentasi dan {\bf review Skripsi 1}}
+			{	Dokumen pendukung untuk {\bf pengambilan ke-2 di Skripsi 2}}
+		}
 		
+\section{Latar Belakang}
+Portal Akademik Mahasiswa adalah sistem informasi berbasis \textit{web} yang digunakan oleh mahasiswa UNPAR. Portal Akademik Mahasiswa berfungsi menyediakan informasi akademis mahasiswa. IFStudentPortal adalah sistem informasi berbasis \textit{web} khusus mahasiswa Teknik Informatika UNPAR hasil pengembangan yang lebih lanjut dari Student Portal UNPAR sebagai skripsi milik Herfan Heryandi, dan dikembangkan lebih lanjut untuk mendukung kurikulum 2018 di skripsi milik Andrianto Sugiarto. IFStudentPortal mengambil dan menggunakan data Portal Akademik Mahasiswa. IFStudentPortal dibuat untuk menyediakan fitur-fitur yang belum dimiliki Portal Akademik Mahasiswa pada tahun 2015. IFStudentPortal memiliki 3 fitur utama yaitu :
+\begin{enumerate}
+    \item Melihat jadwal kuliah yang berbentuk grafik dan terurut berdasarkan hari.
+    \item Melihat ringkasan data akademdik. 
+    \item Melihat rincian pemenuhan syarat kelulusan.
+\end{enumerate}
+Skripsi ini dibuat untuk membawa IFStudentPortal ke platform \textit{android} sebagai aplikasi \textit{native android} IFStudentPortal. Aplikasi \textit{android} IFStudentPortal akan dibangun dengan bantuan \textit{library} jsoup dan SIA Models, dan mengikuti panduan \textit{Android Design} untuk memberikan antarmuka pengguna dan pengalaman pengguna aplikasi yang konsisten sesuai standar \textit{Android}.
+\section{Rumusan Masalah}
+Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
+\begin{itemize}
+    \item Fitur apa saja yang akan tersedia di aplikasi \textit{android} IFStudentPortal?
+    \item Bagaimana cara mengimplementasikan fungsi aplikasi \textit{android} IFStudentPortal dengan \textit{library} jsoup?
+    \item Bagaimana cara mengimplementasikan tampilan aplikasi \textit{android} IFStudentPortal dengan mengikuti pedoman \textit{Android Design}?
+\end{itemize}
+\section{Tujuan}
+Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
+\begin{itemize}
+    \item Mengetahui fitur apa saja yang akan tersedia di aplikasi \textit{android} IFStudentPortal.
+    \item Mengimplementasikan fungsional aplikasi \textit{android} IFStudentPortal menggunakan \textit{library} jsoup.
+    \item Mengimplementasikan tampilan aplikasi \textit{android} IFStudentPortal mengikuti pedoman \textit{android design}.
 \end{itemize}
 
-\section{Detail Pengerjaan Skripsi}
-Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan tersebut mencakup awal hingga akhir skripsi, termasuk di dalamnya pengerjaan dokumentasi skripsi, pengujian, survei, dll.
-
-Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
+\section{Detail Perkembangan Pengerjaan Skripsi}
+Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
-		\item Menulis dokumen skripsi
+		\item \textbf{Melakukan studi mengenai \textit{library} jsoup.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} \textit{Library} jsoup sudah dipelajari secara mendalam untuk digunakan dalam implementasi fitur-fitur aplikasi \textit{android} IFStudentPortal. Kelas-kelas yang dipakai dari \textit{library} jsoup ini sudah didokumentasikan dengan lengkap di Bab 2 Dasar Teori.
+		
+		\item \textbf{Melakukan studi mengenai pedoman \textit{Android Design}.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Pedoman \textit{Android Design} sudah dipelajari dan didokumentasikan di Bab 2, dan dilakukan analisis untuk memenuhi pedoman \textit{Android Design} di Bab 3. Aplikasi \textit{Android} IFStudentPortal sudah mulai diimplementasi dengan mengikuti pedoman \textit{Android Design}. 
+
+		\item \textbf{Menganalisis IFStudentPortal, Portal Akademik Mahasiswa, dan kebutuhan aplikasi.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Portal Akademik Mahasiswa sudah didokumentasikan di Bab 2. IFStudentPortal sudah dianalisis di Bab 3. Saat ini fokus utamanya adalah membuat semua fitur yang ada di situs IFStudentPortal ada di aplikasi \textit{Android} IFStudentPortal, sehingga untuk analisis kebutuhan tambahan akan dilakukan setelah fitur utama selesai.
+
+		\item \textbf{Mendesain kelas aplikasi.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Perancangan kelas-kelas sudah dilakukan karena aplikasi sudah mulai dibuat, namun perancangannya masih bisa berubah dan belum ditulis karena belum menulis Bab 4.
+
+		\item \textbf{Membangun aplikasi \textit{android} IFStudentPortal dengan \textit{library} jsoup.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Dari 3 fitur utama yang dijelaskan di bagian latar belakang, saat ini fitur jadwal sudah selesai dan sedang mengerjakan fitur nilai. Saat ini fokus utamanya adalah membuat semua fitur yang ada di situs IFStudentPortal ada di aplikasi \textit{Android} IFStudentPortal, baru menambahkan fitur yang bisa diintegrasikan dengan platform \textit{Android}.
+
+		\item \textbf{Mengimplementasikan tampilan aplikasi sesuai pedoman \textit{Android Design} dan senada terhadap situs IFStudentPortal.}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi. \\
+		{\bf Hasil :} Bagian tampilan aplikasi yang sudah ada diimplementasi mengikuti pedoman dari \textit{Android Design} dan pemenuhan pedomannya ditulis di Bab 3.
+
+		\item \textbf{Melakukan pengujian dan eksperimen} \\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Pengujian dilakukan sejalan dengan pembuatan aplikasi, namun eksperimen belum dilakukan.
+
+		\item \textbf{Menulis dokumen skripsi}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Bab 1, Bab 2, Bab 3 sudah selesai ditulis, namun tidak menutup kemungkinan untuk terjadi perubahan.
+		
+		\item \textbf{Melakukan perawatan terhadap situs IFStudentPortal dan \textit{library} SIA Models}\\
+		{\bf Status :} baru ditambahkan pada semester ini\\
+		{\bf Hasil :} memperbaiki \textit{bug} yang ada di IFStudentPortal dan sedikit memodifikasi SIA Models agar bisa digunakan di platform \textit{Android}. 
 	\end{enumerate}
 
-\section{Rencana Kerja}
-Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
+\section{Pencapaian Rencana Kerja}
+Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+\item Melakukan studi mengenai \textit{library} jsoup.
+\item Melakukan studi mengenai pedoman \textit{Android Design}.
+\item Menganalisis IFStudentPortal, Portal Akademik Mahasiswa, dan kebutuhan aplikasi.
+\item Menulis dokumen skripsi Bab 1-3.
 \end{enumerate}
 
-Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
-\begin{enumerate}
-\item
-\item
-\item
-\end{enumerate}
+
+
+% \section{Kendala yang Dihadapi}
+% %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
+% Kendala - kendala yang dihadapi selama mengerjakan skripsi :
+% \begin{itemize}
+% 	\item Terlalu banyak melakukan prokratinasi
+% 	\item Terlalu banyak godaan berupa hiburan (game, film, dll)
+% 	\item Skripsi diambil bersamaan dengan kuliah ASD karena selama 5 semester pertama kuliah tersebut sangat dihindari dan tidak diambil, dan selama 4 semester terakhir kuliah tersebut selalu mendapat nilai E
+% 	\item Mengalami kesulitan pada saat sudah mulai membuat program komputer karena selama ini selalu dibantu teman
+% \end{itemize}
 
 \vspace{1cm}
 \centering Bandung, \tanggal\\
@@ -120,16 +159,16 @@ Menyetujui, \\
 \begin{centering} Menyetujui,\\ \end{centering} \vspace{0.75cm}
 \begin{minipage}[b]{0.45\linewidth}
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013 \\
-\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Utama
+\vspace{2cm} Nama: \pembA \\ Pembimbing Utama
 \end{minipage} \hspace{0.5cm}
 \begin{minipage}[b]{0.45\linewidth}
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Pendamping
+\vspace{2cm} Nama: \pembB \\ Pembimbing Pendamping
 \end{minipage}
 \vspace{0.5cm}
 }{
 % \centering Bandung, \makebox[0.5cm]{\hrulefill}/\makebox[0.5cm]{\hrulefill}/2013\\
-\vspace{2cm} Nama: \makebox[3cm]{\hrulefill}\\ Pembimbing Tunggal
+\vspace{2cm} Nama: \pembA \\ Pembimbing Tunggal
 }
 \end{document}
 
