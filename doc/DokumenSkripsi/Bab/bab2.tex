@@ -4,8 +4,8 @@
 
 Pada bab ini akan dijelaskan dasar teori mengenai \textit{library} jsoup yang meliputi kelas-kelas Jsoup, Connection, Response, Document, Elements, dan Element. Akan dibahas pula Portal Akademik Mahasiswa, IFStudentPortal, SIA Models, dan panduan \textit{Android Design} yang meliputi Panduan Aksesibilitas dan panduan \textit{Material Design}.
 
-\section{Portal Akademik Mahasiswa}
-Portal Akademik Mahasiswa adalah sistem informasi berbasis \textit{web} yang diperuntukan bagi mahasiswa untuk memperoleh informasi kegiatan akademik \cite{studentportalunpar}. Portal Akademik Mahasiswa dapat di akses melalui URL \url{https://www.studentportal.unpar.ac.id/}\footnote{Portal Akademik Mahasiswa yang aktif saat skripsi ini ditulis adalah Portal Akademik Mahasiswa versi 2018}. Mahasiswa harus \textit{login} dengan email mahasiswa agar bisa mengakses dan menggunakan fitur-fitur yang tersedia.     
+\section{Portal Akademik Mahasiswa 2018}
+Portal Akademik Mahasiswa adalah sistem informasi berbasis \textit{web} yang diperuntukan bagi mahasiswa untuk memperoleh informasi kegiatan akademik \cite{studentportalunpar}. Portal Akademik Mahasiswa dapat di akses melalui URL \url{https://www.studentportal.unpar.ac.id/}. Mahasiswa harus \textit{login} dengan email mahasiswa agar bisa mengakses dan menggunakan fitur-fitur yang tersedia.     
 
 \begin{figure}[H]
 	\centering
@@ -13,7 +13,126 @@ Portal Akademik Mahasiswa adalah sistem informasi berbasis \textit{web} yang dip
 	\caption{Tampilan halaman awal Portal Akademik Mahasiswa} 
 	\label{fig:studpor_home}
 \end{figure}
-			
+\subsection{Analisis Fitur Portal Akademik Mahasiswa 2018}
+Pada sub-bab ini akan dijelaskan mengenai fitur-fitur yang ada di Portal Akademik Mahasiswa 2018
+\begin{enumerate}
+    \item \textit{Login} : 
+    Untuk dapat menggunakan situs Portal Akademik Mahasiswa, mahasiswa harus \textit{login} menggunakan email \textit{student} mahasiswa.
+    \begin{itemize}
+			\item Nama: \textit{Login}
+			\item Aktor: Mahasiswa
+			\item Deskripsi: \textit{Login} ke Portal Akademik Mahasiswa 
+			\item Kondisi awal: Mahasiswa adalah mahasiswa Universitas Katolik Parahyangan
+			\item Kondisi akhir: Halaman utama Portal Akademik Mahasiswa ditampilkan 
+			\item Skenario utama: \\ \\
+        \begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+        \hline
+            No & Aksi Aktor &  Reaksi Sistem \\ \hline     
+            1 & Mahasiswa mengakses situs Portal Akademik Mahasiswa & Sistem menampilkan halaman depan \\ \hline 
+            2 & Mahasiswa menekan tombol \textit{login} & Sistem menampilkan halaman \textit{login}\\ \hline 
+            3 & Mahasiswa mengisi email dan kata sandi lalu menekan tombol \textit{login} & Sistem melakukan pengecekan identitas \textit{login} \\ \hline 
+            4 & & Jika login berhasil maka sistem akan menampilkan halaman utama Portal Akademik Mahasiswa\\ \hline 
+        \end{tabular}
+    \end{itemize}
+    \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.7]{Gambar/login_pam}
+				\caption{Tampilan Login} 
+				\label{fig:pam_login}
+			\end{figure}
+	\item \textit{FRS/PRS Daring} : 
+    Mahasiswa dapat mengisi form rencana studi (FRS) atau melakukan perubahan rencana studi (PRS) secara daring di situs Portal Akademik Mahasiswa.
+    \begin{itemize}
+			\item Nama: FRS/PRS Daring
+			\item Aktor: Mahasiswa
+			\item Deskripsi: Mengisi form rencana studi (FRS) atau melakukan perubahan rencana studi (PRS) secara daring
+			\item Kondisi awal: Mahasiswa sudah \textit{login} ke Portal Akademik Mahasiswa
+			\item Kondisi akhir: Mahasiswa berhasil mengisi form rencana studi atau merubah rencana studi 
+			\item Skenario utama: \\ \\
+        \begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+        \hline
+            No & Aksi Aktor &  Reaksi Sistem \\ \hline     
+            1 & Mahasiswa menekan tombol FRS/PRS & Sistem menampilkan halaman FRS/PRS \\ \hline 
+            2 & Mahasiswa mengisi form rencana studi atau merubah rencana studi & \\ \hline 
+            3 & Mahasiswa menekan tombol selesai & Sistem mencatat hasil FRS/PRS mahasiswa \\ \hline 
+        \end{tabular}
+    \end{itemize}
+     \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{DokumenSkripsi/Gambar/frs.PNG}
+				\caption{Tampilan halaman FRS/PRS} 
+				\label{fig:pam_frs}
+			\end{figure}
+    \item \textit{Profil Mahasiswa} : 
+    Mahasiswa dapat melihat informasi data diri di halaman profil mahasiswa.
+    \begin{itemize}
+			\item Nama: Profil mahasiswa
+			\item Aktor: Mahasiswa
+			\item Deskripsi: Melihat data diri mahasiswa
+			\item Kondisi awal: Mahasiswa sudah \textit{login} ke Portal Akademik Mahasiswa
+			\item Kondisi akhir: Mahasiswa disajikan informasi data diri
+			\item Skenario utama: \\ \\
+        \begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+        \hline
+            No & Aksi Aktor &  Reaksi Sistem \\ \hline     
+            1 & Mahasiswa menekan tombol profil mahasiswa & Sistem menampilkan halaman profil mahasiswa \\ \hline 
+        \end{tabular}
+    \end{itemize}
+     \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.7]{DokumenSkripsi/Gambar/profil}
+				\caption{Tampilan halaman profil mahasiswa} 
+				\label{fig:pam_profil}
+			\end{figure}
+	 \item \textit{Pembayaran} : 
+    Mahasiswa dapat melihat informasi tentang tagihan pembayaran, riwayat pembayaran, dan keterangan tata cara pembayaran.
+    \begin{itemize}
+			\item Nama: Profil mahasiswa
+			\item Aktor: Mahasiswa
+			\item Deskripsi: Melihat informasi pembayaran
+			\item Kondisi awal: Mahasiswa sudah \textit{login} ke Portal Akademik Mahasiswa
+			\item Kondisi akhir: Mahasiswa disajikan informasi pembayaran
+			\item Skenario utama: \\ \\
+        \begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+        \hline
+            No & Aksi Aktor &  Reaksi Sistem \\ \hline     
+            1 & Mahasiswa menekan tombol pembayaran & Sistem menampilkan halaman pembayaran \\ \hline 
+        \end{tabular}
+    \end{itemize}
+     \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{DokumenSkripsi/Gambar/pembayaran}
+				\caption{Tampilan halaman pembayaran} 
+				\label{fig:pam_pembayaran}
+			\end{figure}
+    \item \textit{Nilai} : 
+    Mahasiswa dapat melihat informasi nilai mata kuliah yang diambil mahasiswa untuk setiap semesternya. Informasi nilai yang tersedia antara lain nilai tugas, angka rata-rata tugas (ART), ujian tengah semester (UTS), ujian akhir semester (UAS), dan TOEFL. Mahasiswa juga bisa melihat grafik perkembangan indeks prestasi kumulatif (IPK) dan indeks prestasi semester (IPS).
+    \begin{itemize}
+			\item Nama: Profil mahasiswa
+			\item Aktor: Mahasiswa
+			\item Deskripsi: Melihat informasi nilai 
+			\item Kondisi awal: Mahasiswa sudah \textit{login} ke Portal Akademik Mahasiswa
+			\item Kondisi akhir: Mahasiswa disajikan informasi nilai
+			\item Skenario utama: \\ \\
+        \begin{tabular}{|p{0.5cm} |p{6cm}| p{6cm}|}
+        \hline
+            No & Aksi Aktor &  Reaksi Sistem \\ \hline     
+            1 & Mahasiswa menekan tombol nilai & Sistem menampilkan halaman nilai \\ \hline 
+        \end{tabular}
+    \end{itemize}
+     \begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{DokumenSkripsi/Gambar/nilai}
+				\caption{Tampilan halaman nilai} 
+				\label{fig:pam_nilai}
+			\end{figure}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.3]{DokumenSkripsi/Gambar/ipk}
+				\caption{Tampilan halaman indeks prestasi} 
+				\label{fig:pam_ipk}
+			\end{figure}
+\end{enumerate}
 
 \section{\textit{Jsoup}}
 \label{sec:jsoup}
@@ -157,8 +276,8 @@ Kelas ini merepresentasikan sebuah elemen HTML yang berisikan \textit{tag}, atri
 		\textbf{Kembalian:} teks dalam \textit{string}.	
 \end{itemize}
 
-\section{SIA Models}
-SIA Models merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018 \footnote{SIA Models versi v5.0.0 yang digunakan saat penulisan skripsi ini}. Kelas-kelas yang digunakan dari \textit{library} ini akan dijelaskan di sub bab berikut.
+\section{SIA Models versi 5.0.0}
+SIA Models merupakan \textit{library} Java yang merepresentasikan Sistem Informasi Akademik Teknik Informatika UNPAR \cite{siamodels}. Saat ini SIAModels mendukung kurikulum 2018. Kelas-kelas yang digunakan dari \textit{library} ini akan dijelaskan di sub bab berikut.
 
 \subsection{Mahasiswa}
 Kelas ini merepresentasikan seorang mahasiswa Universitas Katolik Parahyangan. Kelas ini memiliki atribut antara lain nama, npm, tanggal lahir, jenis kelamin, riwayat nilai, foto, dan jadwal kuliah. Beberapa \textit{method} yang dimiliki kelas ini adalah sebagai berikut:
@@ -213,7 +332,7 @@ Kelas ini merepresentasikan kelulusan mahasiswa Universitas Katolik Parahyangan.
 			\item \textbf{reasonsContainer} : daftar alasan-alasan yang membuat tidak lulus.
 		\end{itemize}
 		\textbf{Kembalian:} nilai \textit{boolean true} atau \textit{false} yang merepresentasikan status kelulusan prasyarat mahasiswa.	
-	\item \textbf{public Map<String, String> getMkEkevalensi()}\\
+	\item \textbf{public Map<String, String> getMkEkivalensi()}\\
 	    Berfungsi menambahkan data mata kuliah kurikulum 2013 yang ekivalen dengan mata kuliah kurikulum 2018. \\
 	    \textbf{Kembalian:} daftar mata kuliah yang ekivalen dengan kurikulum 2018 dalam bentuk \textit{map.}
 \end{itemize}
@@ -233,7 +352,7 @@ Kelas ini merepresentasikan tahun dan semester masa studi mahasiswa di Universit
 
 \section{\textit{Android Design}}
 \label{sec:android design}
-Dalam mengembangkan aplikasi \textit{android}, ada pedoman desain yang diberikan. Desain tampilan aplikasi \textit{android} mengacu pada \textit{Android Material design}. Pedoman kualitas aplikasi juga diberikan untuk aspek kompabilitas, keamanan, peforma, dll. Kedua pedoman ini diberikan agar aplikasi yang dihasilkan bisa memiliki tampilan dan perilaku yang konsisten dengan platform \textit{android}. 
+Dalam mengembangkan aplikasi \textit{Android}, ada pedoman desain yang diberikan. Desain tampilan aplikasi \textit{Android} mengacu pada \textit{Android Material Design}. Pedoman kualitas aplikasi juga diberikan untuk aspek kompatibilitas, keamanan, performa, dll. Kedua pedoman ini diberikan agar aplikasi yang dihasilkan bisa memiliki tampilan dan perilaku yang konsisten dengan platform \textit{Android}. 
  
 \subsection{\textit{Material Design}}
 \textit{Material Design} terdiri dari panduan, komponen, dan alat-alat untuk mendukung pembuatan tampilan antarmuka yang baik. \textit{Material Design} bertujuan mempermudah kolaborasi antara desainer dan pengembang aplikasi untuk membuat produk yang cantik dengan cepat\cite{materialdesign}. Ada 2 panduan utama yang harus diikuti dari \textit{Material Design} yaitu panduan aksesibilitas dan panduan platform. 
@@ -242,13 +361,13 @@ Dalam mengembangkan aplikasi \textit{android}, ada pedoman desain yang diberikan
 Aksesibilitas dapat diartikan sebagai tingkat kemudahan saat pengguna mempelajari dan menggunakan tampilan antarmuka aplikasi. Meningkatkan aksesibilitas akan meningkatkan \textit{usability} atau tingkat kebergunaan aplikasi kepada berbagai kalangan pengguna \cite{materialdesign}. Hal penting yang harus diperhatikan agar aplikasi memiliki aksesibilitas yang baik :
 \begin{itemize}
     \item (HR-01) Hierarki : Elemen-elemen harus terlihat dengan jelas baik dari ukuran, kontras, dan infromasi yang terkandung di dalamnya. Elemen-elemen juga harus terurut berdasarkan kepentingan dan elemen dengan fungsi tertentu diletakan di tempat yang mudah dijangkau.
-    \item (WK-01) Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lamaa, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
+    \item (WK-01) Warna dan Kontras : Kontras yang cukup tinggi akan membuat elemen terlihat jelas, namun jika terlalu tinggi juga akan kurang nyaman dilihat terlalu lama, jika terlalu rendah maka elemen-elemen akan sulit dibedakan satu sama lain (misal warna teks dengan latar belakangnya). Jika warna digunakan sebagai suatu indikator, maka perlu ada tambahan keterangan lain agar pengguna yang menderita buta warna tetap bisa menerima informasi dengan baik.
     \item (TL-01) Tata Letak dan Tipografi : Menggunakan \textit{layout} yang fleksibel dan resposif akan membantu isi konten menyesuaikan dengan skala layar agar konten tidak ada yang terpotong dengan tidak sengaja. Pastikan menggunakan format sp untuk ukuran \textit{font} agar ukuran teks ikut terskala dengan baik jika pengguna merubah ukuran \textit{font} dari pengaturan sistem perangkat. Pastikan juga ada ruang yang cukup untuk menampung ukuran teks yang diperbesar.
     \item (GB-01) Gambar : Gunakan gambar untuk memperjelas informasi yang disajikan. Gambar logo boleh tidak mematuhi panduan warna, kontras, dan ukuran teks, namun sebaiknya tetap memiliki fungsi (misalnya logo sebagai tombol ke halaman utama).  
 \end{itemize}
 
 \subsubsection{Panduan Platform}
-Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan untuk setiap platform. Platform yang dimaksud pada bagian ini adalah bagian-bagian dari komponen aplikasi android. Platform yang dimaksud adalah :
+Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan untuk setiap platform. Platform yang dimaksud pada bagian ini adalah bagian-bagian dari komponen aplikasi Android. Platform yang dimaksud adalah :
 \begin{itemize}
     \item (NT-01) Notifikasi : notifikasi digunakan untuk memberi tahu komunikasi dari pengguna lain dan mengingatkan hal yang perlu dilakukan. Notifikasi bisa ditampilkan di halaman terkunci, di \textit{status bar}, dengan kedipan lampu LED, dan dengan suara dan getaran. Sebaiknya notifikasi tidak digunakan untuk promosi, meminta rating aplikasi, dan memberi tahu proses yang tidak berhubungan dengan pengguna. Pada saat layar terkunci sebaiknya notifikasi tidak menampilkan informasi yang sensitif. Notifikasi harus punya bagian \textit{header}, bagian konten, dan bagian aksi. 
     \item (IA-01) Izin Akses (\textit{permission}) : Secara normal, aplikasi punya izin akses ke beberapa hal tanpa perlu memintanya kepada pengguna. Namun beberapa hal berikut membutuhkan konfirmasi dari pengguna agar aplikasi memiliki izin akses :
@@ -266,7 +385,7 @@ Panduan platform membantu menentukan bagaimana ketentuan yang akan digunakan unt
 \end{itemize}
 
 \subsection{Kualitas Aplikasi}
-Pengguna \textit{android} tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal instalasi, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{android developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
+Pengguna tentu menginginkan aplikasi berkualitas. Kualitas aplikasi akan menentukan keberhasilan aplikasi dalam hal instalasi, ulasan, loyalitas dan keterlibatan pengguna untuk jangka panjang \cite{androiddesign}. Dokumentasi \textit{Android Developers} memberikan kriteria untuk mengukur kualitas aplikasi sebagai berikut :
 \begin{itemize}
     \item Desain visual dan interaksi pengguna
     \item Fungsionalitas
@@ -298,8 +417,8 @@ Kriteria ini bertujuan memastikan aplikasi memberikan perilaku fungsional yang d
 Kriteria ini bertujuan memastikan aplikasi memberikan kompatibilitas, performa, stabilitas, dan daya respons yang diharapkan oleh pengguna \cite{androiddev}. Kriteria ini dapat dijabarkan sebagai berikut : 
 \begin{itemize}
     \item (PS-S1) Aplikasi diharapkan tidak macet, berfungsi tidak normal, menutup sendiri di perangkat yang menjalankan.
-    \item (PS-P1) Aplikasi dimuat dengan cepat atau memberikan indikator kepada pengguna tentang kapan aplikasi selesai dimuat.
-    \item (PS-T1) Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{android} versi terbaru tanpa kendala.
+    \item (PS-P1) Aplikasi dimuat dengan cepat atau memberikan indikasi kepada pengguna tentang kapan aplikasi selesai dimuat.
+    \item (PS-T1) Aplikasi dibuat dengan \textit{SDK} terbaru dan berjalan di \textit{Android} versi terbaru tanpa kendala.
     \item (PS-M1) Aplikasi memutar video dan audio dengan lancar, tidak tersendat, suara dan gambar tidak pecah, atau cacat lainnya.
     \item (PS-V1) Aplikasi menyediakan grafik berkualitas tinggi untuk semua ukuran layar yang ditargetkan dan menampilkan elemen antarmuka tanpa pikselasi, distorsi, dan tidak bergerigi pada tepian.
     \item (PS-B1) Aplikasi mendukung fitur pengelolaan daya baterai (\textit{Android 6.0+}).  
