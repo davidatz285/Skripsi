@@ -1,0 +1,87 @@
+\chapter{Perancangan}
+\label{chap:perancangan}
+
+Pada bab ini akan dijelaskan mengenai perancangan aplikasi yang akan dibangun meliputi diagram kelas rinci beserta deskripsi dan fungsinya, dan perancangan antarmuka.
+
+\section{Diagram Kelas}
+Diagram kelas dapat dilihat di gambar \ref{fig:4_final_class_diagram}. Penjelasan mengenai kelas dan \textit{method} yang ada di dalamnya adalah sebagai berikut :
+
+\begin{enumerate}
+		\item Scrapper\\
+		Kelas ini berfungsi untuk mengambil data dari Portal Akademik Mahasiswa untuk diolah dan ditampilkan. Atribut yang dimiliki kelas ini adalah sebagai berikut :
+		\begin{itemize}
+			\item \textbf{String phpSessId:} menyimpan \textit{php session id} yang dibuat saat terjadi koneksi ke Portal Akademik Mahasiswa.
+			\item \textbf{String ciSession:} menyimpan \textit{Code Igniter} session yang dibuat saat terjadi koneksi ke Portal Akademik Mahasiswa.
+            \item \textbf{Mahasiswa mahasiswa:} merepresentasikan mahasiswa yang akan diolah dan ditampilkan datanya.
+            \item \textbf{Context context:} menyimpan \textit{context} tujuan pengiriman data setelah diambil dan diolah dari Portal Akademik Mahasiswa.
+            \item \textbf{HomeManager homeManager:} menyimpan objek yang mengatur halaman utama aplikasi.
+            \item \textbf{LoginManager loginManager:} menyimpan objek yang mengatur halaman \textit{login} aplikasi.
+            \item \textbf{JadwalManager jadwalManager:} menyimpan objek yang mengatur halaman jadwal mahasiswa.
+            \item \textbf{ProgressDialog dialog:} menyimpan objek yang mengatur \textit{progress dialog}.
+            \item \textbf{final String BASE_URL:} menyimpan \textit{url} ke Portal Akademik Mahasiswa.
+            \item \textbf{final String LOGIN_URL:} menyimpan \textit{url} ke halaman \textit{login} Portal Akademik Mahasiswa.
+            \item \textbf{final String SSO_URL:} menyimpan \textit{url} ke halaman login \textit{Single Sign On} UNPAR.
+            \item \textbf{final String JADWAL_URL:} menyimpan \textit{url} ke halaman jadwal Portal Akademik Mahasiswa.
+            \item \textbf{final String NILAI_URL:} menyimpan \textit{url} ke halaman nilai Portal Akademik Mahasiswa.
+            \item \textbf{final String TOEFL_URL:} menyimpan \textit{url} ke halaman nilai TOEFL Portal Akademik Mahasiswa.
+            \item \textbf{final String HOME_URL:} menyimpan \textit{url} ke halaman utama Portal Akademik Mahasiswa.
+
+		\end{itemize}
+		
+		\textit{Method} yang dimiliki kelas ini adalah sebagai berikut :
+		\begin{itemize}
+			
+			\item \textbf{public Scrapper(Context context, HomeManager homeManager)}\\
+				Berfungsi sebagai \textit{constructor} kelas Scrapper.\\
+				\textbf{Kembalian:} objek kelas scrapper untuk digunakan di halaman utama setelah pengguna \textit{login}.
+            \item \textbf{public Scrapper(Context context, LoginManager loginManager)}\\
+				Berfungsi sebagai \textit{constructor} kelas Scrapper.\\
+				\textbf{Kembalian:} objek kelas scrapper untuk digunakan di halaman \textit{login} saat pengguna akan \textit{login}.	
+			\item \textbf{public Scrapper(Context context, JadwalManager jadwalManager)}\\
+				Berfungsi sebagai \textit{constructor} kelas Scrapper.\\
+				\textbf{Kembalian:} objek kelas scrapper untuk digunakan di halaman jadwal mahasiswa.
+			\item \textbf{public void login(String email, String password)}\\
+			\textbf{Parameter:}
+				\begin{itemize}
+					\item \textbf{email:} \textit{email} mahasiswa yang dipakai \textit{login}.
+					\item \textbf{password:} \textit{password} mahasiswa yang dipakai \textit{login}.
+				\end{itemize}
+				Berfungsi untuk \textit{login} ke Portal Akademik Mahasiswa agar bisa mengambil data mahasiswa.\\
+				\textbf{Kembalian:} tidak ada.
+		    \item \textbf{public void getMahasiswaInfo(String phpSessId, String npm)}\\
+			\textbf{Parameter:}
+				\begin{itemize}
+					\item \textbf{phpSessId:} \textit{php session id} dari koneksi ke Portal Akademik Mahasiswa.
+					\item \textbf{npm:} nomor pokok mahasiswa yang akan diambil datanya.
+				\end{itemize}
+				Berfungsi untuk mengambil data mahasiswa untuk ditampilkan di halaman utama.\\
+				\textbf{Kembalian:} tidak ada.
+			\item \textbf{public void getListJadwal(String phpSessId, String npm)}\\
+			\textbf{Parameter:}
+				\begin{itemize}
+					\item \textbf{phpSessId:} \textit{php session id} dari koneksi ke Portal Akademik Mahasiswa.
+				\end{itemize}
+				Berfungsi untuk mengambil data jadwal mahasiswa untuk ditampilkan di halaman jadwal.\\
+				\textbf{Kembalian:} tidak ada.
+		\end{itemize}
+		
+		Terdapat 3 \textit{private class} di dalam kelas Scrapper ini. Kelas ini merupakan perluasan dari kelas \textit{AsyncTask}. Hal ini diperlukan karena untuk mengakses internet tidak bisa dilakukan di \textit{thread} utama \textit{Android}. Semua kelas ini memiliki \textit{method-method} yang harus diimplementasi dari kelas \textit{AsyncTask} yaitu \textbf{onPreExecute, doInBackground,} dan \textbf{onPostExecute}. Berikut penjelasan dari \textit{method-method} yang ada di dalam beberapa \textit{private class} di dalam kelas Scrapper.
+		
+		\begin{enumerate}
+		    \item Login\\
+		    Kelas ini digunakan untuk \textit{login} ke Portal Akademik Mahasiswa untuk mengambil data. \textit{Method} \textbf{onPreExecute} di kelas ini berfungsi menampilkan \textit{progress dialog} dengan teks keterangan sedang mencoba \textit{login}. \textit{Method} \textbf{doInBackground} di kelas ini melakukan \textit{login} ke Portal Akademik Mahasiswa dengan \textit{email} dan kata sandi mahasiswa. \textit{Method} \textbf{onPostExecute} di kelas ini berfungsi memindahkan aplikasi dari halaman \textit{login} ke halaman utama setelah berhasil \textit{login}. 
+		    \item GetMahasiswaInfo\\
+		    Kelas ini digunakan untuk mengambil data mahasiswa dari Portal Akademik Mahasiswa untuk diolah dan ditampilkan kemudian. Tidak ada \textit{method} \textbf{onPreExecute} di kelas ini. \textit{Method} \textbf{doInBackground} di kelas ini melakukan pengambilan data nama, npm, dan foto profil mahasiswa dari Portal Akademik Mahasiswa. \textit{Method} \textbf{onPostExecute} di kelas ini berfungsi mengirimkan data ke kelas lain yang berfungsi menampilkan data tersebut di halaman utama. 
+		    \item RequestJadwal\\
+		    Kelas ini digunakan untuk mengambil data jadwal mahasiswa dari Portal Akademik Mahasiswa untuk diolah dan ditampilkan kemudian. Tidak ada \textit{method} \textbf{onPreExecute} di kelas ini. \textit{Method} \textbf{doInBackground} di kelas ini melakukan pengambilan data mahasiswa seperti nama mata kuliah, kode mata kuliah, hari dan jam kelas, dan nama dosen dan  dari Portal Akademik Mahasiswa. \textit{Method} \textbf{onPostExecute} di kelas ini berfungsi mengirimkan data ke kelas lain yang berfungsi menampilkan data tersebut di halaman jadwal. 
+		\end{enumerate}
+\end{enumerate}
+
+\begin{figure}[ht]
+			\centering
+			\includegraphics[scale=0.45]{Gambar/class-diagram-final}
+			\caption{Diagram Kelas} 
+			\label{fig:4_final_class_diagram}
+		\end{figure}
+
+\section{Perancangan Antarmuka}
